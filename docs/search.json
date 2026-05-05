@@ -67,7 +67,7 @@
     "href": "index.html#reading-the-queue",
     "title": "RoboRev + Agent Browser",
     "section": "Reading The Queue",
-    "text": "Reading The Queue\n\n\nroborev tuiOpen the interactive review browser.\n\n\nroborev list –openShow currently open reviews.\n\n\nroborev show &lt;job_id&gt;Read one review from the CLI.\n\n\nroborev log &lt;job_id&gt;Inspect the agent job log.\n\n\nroborev wait –sha HEADWait for an already queued review.\n\n\nroborev close &lt;job_id&gt;Mark a review as handled.\n\n\n\n\n\nIn the TUI, use arrow keys or j and k to move, Enter to open details, y to copy a completed review, and ? for shortcuts."
+    "text": "Reading The Queue\n\n\nroborev tuiOpen the interactive review browser.\n\n\nroborev list –openShow currently open reviews.\n\n\nroborev show &lt;job_id&gt;Read one review from the CLI.\n\n\nroborev log &lt;job_id&gt;Inspect the agent job log.\n\n\nroborev wait –sha HEADWait for an already queued review.\n\n\nroborev close &lt;job_id&gt;Mark a review as handled.\n\n\n\n\n\nIn the TUI, use arrow keys or j and k to move, a to close, Enter to open details, y to copy a completed review, and ? for shortcuts."
   },
   {
     "objectID": "index.html#three-fix-paths",
@@ -147,6 +147,20 @@
     "text": "Why Refs Matter\n\n\n\n\n\nContext Efficient\nA snapshot can describe interactive page state in hundreds of tokens instead of thousands.\n\n\n\n\n\nDeterministic\nThe agent clicks @e2, not the second button it guesses from a screenshot.\n\n\n\n\n\nReadable\nThe agent can reason over text output that names roles, labels, and refs."
   },
   {
+    "objectID": "index.html#css-selectors-the-old-way",
+    "href": "index.html#css-selectors-the-old-way",
+    "title": "RoboRev + Agent Browser",
+    "section": "CSS Selectors: The Old Way",
+    "text": "CSS Selectors: The Old Way\n\n Query selectors\n\n\nCSS selectors require you to inspect, find paths, and hope the selector remains stable. Brittle and token-expensive."
+  },
+  {
+    "objectID": "index.html#refs-the-agent-browser-way",
+    "href": "index.html#refs-the-agent-browser-way",
+    "title": "RoboRev + Agent Browser",
+    "section": "Refs: The Agent Browser Way",
+    "text": "Refs: The Agent Browser Way\n\n Deterministic references\n\n\nAgent Browser refs are simple, stable handles like @e1 that point to exact elements. Built-in to every snapshot, no guessing."
+  },
+  {
     "objectID": "index.html#agent-browser-mental-model",
     "href": "index.html#agent-browser-mental-model",
     "title": "RoboRev + Agent Browser",
@@ -165,7 +179,7 @@
     "href": "index.html#using-agent-browser-in-claude-code",
     "title": "RoboRev + Agent Browser",
     "section": "Using Agent Browser In Claude Code",
-    "text": "Using Agent Browser In Claude Code\n\n Two ways to use it\n\n\n\nOption 1: Install the skill (recommended)\n# One-time setup\nnpx skills add vercel-labs/agent-browser\n\n# Claude Code now has built-in agent-browser guidance\nThis installs a discovery skill that teaches Claude Code about agent-browser. The skill content auto-updates with your CLI version.\n\n\nOption 2: Use the CLI directly\n# In Claude Code terminal\nagent-browser open https://example.com\nagent-browser snapshot -i\nagent-browser click @e1\nagent-browser screenshot result.png\nagent-browser close\nClaude Code returns output directly into the conversation. Works without the skill."
+    "text": "Using Agent Browser In Claude Code\n\n Two ways to use it\n\n\n\nOption 1: Install the skill (recommended)\n# One-time setup and select Claude Code as the target agent\nnpx skills add vercel-labs/agent-browser\n\n# Claude Code now has built-in agent-browser guidance\nThis installs a discovery skill that teaches Claude Code about agent-browser. The skill content auto-updates with your CLI version.\n\n\nOption 2: Use the CLI directly\n# In Claude Code terminal\nagent-browser open https://example.com\nagent-browser snapshot -i\nagent-browser click @e1\nagent-browser screenshot result.png\nagent-browser close\nClaude Code returns output directly into the conversation. Works without the skill."
   },
   {
     "objectID": "index.html#agent-browser-skills",

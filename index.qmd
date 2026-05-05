@@ -190,7 +190,7 @@ roborev tui
 <div class="command-card"><code>roborev close &lt;job_id&gt;</code><span>Mark a review as handled.</span></div>
 </div>
 
-<div class="callout-strip"><i class="fa-solid fa-keyboard"></i><p>In the TUI, use arrow keys or `j` and `k` to move, `Enter` to open details, `y` to copy a completed review, and `?` for shortcuts.</p></div>
+<div class="callout-strip"><i class="fa-solid fa-keyboard"></i><p>In the TUI, use arrow keys or `j` and `k` to move, `a` to close, `Enter` to open details, `y` to copy a completed review, and `?` for shortcuts.</p></div>
 
 ## Three Fix Paths
 
@@ -400,6 +400,18 @@ The agent can reason over text output that names roles, labels, and refs.
 :::
 ::::
 
+## CSS Selectors: The Playwright Way
+
+<div class="kicker"><i class="fa-solid fa-code"></i> Query selectors</div>
+
+![CSS selectors require you to inspect, find paths, and hope the selector remains stable. Brittle and token-expensive.](assets/css_selector.png)
+
+## Refs: The Agent Browser Way
+
+<div class="kicker"><i class="fa-solid fa-at"></i> Deterministic references</div>
+
+![Agent Browser refs are simple, stable handles like @e1 that point to exact elements. Built-in to every snapshot, no guessing.](assets/ref.png)
+
 ## Agent Browser Mental Model
 
 <div class="flow-row">
@@ -451,7 +463,7 @@ agent-browser close
 **Option 1: Install the skill (recommended)**
 
 ```bash
-# One-time setup
+# One-time setup and select Claude Code as the target agent
 npx skills add vercel-labs/agent-browser
 
 # Claude Code now has built-in agent-browser guidance

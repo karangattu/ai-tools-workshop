@@ -434,7 +434,7 @@ Goal
 <div class="callout-strip">
 <i class="fa-solid fa-keyboard"></i>
 <p>
-In the TUI, use arrow keys or <code>j</code> and <code>k</code> to move, <code>Enter</code> to open details, <code>y</code> to copy a completed review, and <code>?</code> for shortcuts.
+In the TUI, use arrow keys or <code>j</code> and <code>k</code> to move, <code>a</code> to close, <code>Enter</code> to open details, <code>y</code> to copy a completed review, and <code>?</code> for shortcuts.
 </p>
 </div>
 </section>
@@ -697,6 +697,20 @@ Use it when
 </div>
 </div>
 </section>
+<section id="css-selectors-the-old-way" class="slide level2">
+<h2>CSS Selectors: The Old Way</h2>
+<div class="kicker">
+<i class="fa-solid fa-code"></i> Query selectors
+</div>
+
+<img data-src="assets/css_selector.png" class="r-stretch quarto-figure-center"><p class="caption">CSS selectors require you to inspect, find paths, and hope the selector remains stable. Brittle and token-expensive.</p></section>
+<section id="refs-the-agent-browser-way" class="slide level2">
+<h2>Refs: The Agent Browser Way</h2>
+<div class="kicker">
+<i class="fa-solid fa-at"></i> Deterministic references
+</div>
+
+<img data-src="assets/ref.png" class="r-stretch quarto-figure-center"><p class="caption">Agent Browser refs are simple, stable handles like <span class="citation" data-cites="e1">@e1</span> that point to exact elements. Built-in to every snapshot, no guessing.</p></section>
 <section id="agent-browser-mental-model" class="slide level2">
 <h2>Agent Browser Mental Model</h2>
 <div class="flow-row">
@@ -760,7 +774,7 @@ Try without installing: <code>npx agent-browser open example.com</code>.
 <div class="grid-2">
 <div class="grid-cell">
 <p><strong>Option 1: Install the skill (recommended)</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="co"># One-time setup</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="co"># One-time setup and select Claude Code as the target agent</span></span>
 <span id="cb10-2"><a></a><span class="ex">npx</span> skills add vercel-labs/agent-browser</span>
 <span id="cb10-3"><a></a></span>
 <span id="cb10-4"><a></a><span class="co"># Claude Code now has built-in agent-browser guidance</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
