@@ -37,10 +37,6 @@ Decide when to review code, when to automate the browser, and when to turn findi
 :::
 ::::
 
-::: {.hero-line}
-The goal is a tight agent workflow: commit small, review fast, inspect the browser.
-:::
-
 ## The Combined Development Loop
 
 <div class="kicker"><i class="fa-solid fa-diagram-project"></i> How the pieces fit</div>
@@ -436,21 +432,37 @@ brew install agent-browser
 
 # First run downloads Chrome
 agent-browser install
-
-# Smoke test
-agent-browser open https://example.com
-agent-browser snapshot -i
-agent-browser close
 ```
 :::
 
 ::: {.grid-cell}
-```text
-- heading "Example Domain" [ref=e1]
-- link "More information..." [ref=e2]
+**Smoke test:**
+
+```bash
+agent-browser open https://posit.co/
 ```
 
-<div class="callout-strip"><i class="fa-solid fa-terminal"></i><p>Try without installing: `npx agent-browser open example.com`.</p></div>
+```text
+✓ Posit | Data Science Platform for Enterprise Teams
+  https://posit.co/
+```
+
+```bash
+agent-browser snapshot -i
+```
+
+```text
+- heading "This website uses cookies" [level=2, ref=e139]
+- link "Show details" [ref=e38]
+- button "OK" [ref=e39]
+- link "Skip to main content" [ref=e1]
+```
+
+```bash
+agent-browser close
+```
+
+<div class="callout-strip"><i class="fa-solid fa-terminal"></i><p>Try without installing: `npx agent-browser open posit.co`.</p></div>
 :::
 ::::
 
@@ -476,15 +488,12 @@ This installs a discovery skill that teaches Claude Code about agent-browser. Th
 **Option 2: Use the CLI directly**
 
 ```bash
-# In Claude Code terminal
-agent-browser open https://example.com
+agent-browser open https://posit.co/
 agent-browser snapshot -i
-agent-browser click @e1
-agent-browser screenshot result.png
+agent-browser click @e50
+agent-browser screenshot /Users/name/Desktop/result.png
 agent-browser close
 ```
-
-Claude Code returns output directly into the conversation. Works without the skill.
 :::
 ::::
 
@@ -503,7 +512,7 @@ Claude Code returns output directly into the conversation. Works without the ski
 
 <div class="callout-strip"><i class="fa-solid fa-terminal"></i><p>After installing, use `agent-browser skills list` to see all available skills, then `agent-browser skills get <name>` to load one into Claude Code.</p></div>
 
-## Lab 3: TodoMVC First Run
+## Act 3: Sample Browser Task
 
 ::: {.lab-card}
 <h3>Goal</h3>
@@ -519,7 +528,7 @@ agent-browser snapshot -i
 
 # Find the textbox ref, for example @e1.
 agent-browser click @e1
-agent-browser type "Buy milk"
+agent-browser type "Buy Dr. Pepper"
 agent-browser press Enter
 agent-browser snapshot -i
 agent-browser close
@@ -529,7 +538,7 @@ agent-browser close
 ::: {.prompt-box}
 Prompt to your coding agent:
 
-Use Agent Browser to add a todo named "Buy milk" at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot.
+Use Agent Browser to add a todo named "Buy Dr. Pepper" at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot.
 :::
 ::::
 
@@ -541,7 +550,7 @@ Use Agent Browser to add a todo named "Buy milk" at https://demo.playwright.dev/
 ::: {.card}
 <h3>Simple exploration</h3>
 
-"Use agent-browser to open https://example.com, take a snapshot, and describe what you see. List the clickable elements by their refs."
+"Use agent-browser to open https://positron.posit.co/keyboard-shortcuts.html, take a snapshot, and describe what you see. List the clickable elements by their refs."
 
 Claude Code runs commands and reads the snapshot output.
 :::
@@ -549,11 +558,14 @@ Claude Code runs commands and reads the snapshot output.
 ::: {.card}
 <h3>Form interaction</h3>
 
-"Use agent-browser to navigate to https://example.com/form, find the email field, type test@example.com, click submit, and show a screenshot."
+"Use agent-browser to navigate to https://posit.co/schedule-a-call, find the email field, type test@posit.co, click submit, and show a screenshot."
 
 Claude Code chains commands and maps human language to refs.
 :::
+::::
 
+## Prompting Claude Code For Browser Tasks (cont.)
+:::: {.grid-2}
 ::: {.card}
 <h3>With the skill</h3>
 
@@ -615,19 +627,19 @@ agent-browser screenshot login-result.png
 :::
 ::::
 
-## Lab 4: Exploratory Browser Task
+## Act 4: Exploratory Browser Task
 
 ::: {.lab-card}
 <h3>Scenario</h3>
 
-Test whether TodoMVC renders a script-like todo as text or executes it.
+Test whether the Todo List renders a script-like todo as text or executes it.
 :::
 
 :::: {.grid-2}
 ::: {.prompt-box}
 Prompt to your coding agent:
 
-Use Agent Browser to test TodoMVC with this todo text:
+Use Agent Browser to test https://demo.playwright.dev/todomvc/ with this todo text:
 `<script>alert('xss')</script>`
 
 Open the app, snapshot to find the input, add the todo, save a screenshot as xss-test.png, snapshot again, and report whether the text rendered or executed.
@@ -649,50 +661,26 @@ agent-browser close
 
 ## Choosing The Browser Tool
 
-| Need | Agent Browser | Playwright MCP | Playwright Test |
-|---|---|---|---|
-| One-off browser task | Best | Heavy | Heavy |
-| Deep exploratory reasoning | Useful | Best | Limited |
-| Repeatable CI suite | Limited | Limited | Best |
-| Token efficiency | High | Low | High |
-| Multi-browser coverage | Limited | Limited | Best |
-| Agent can inspect live page | Best | Best | Indirect |
+<div class="kicker"><i class="fa-solid fa-compare"></i> Comparison</div>
 
-<div class="small-note">Rule of thumb: use Agent Browser to move quickly, Playwright MCP to reason deeply over live state, and Playwright Test when behavior must become a durable suite.</div>
+### Example: "Log in to a site"
 
-## Scenario Breakouts
-
-:::: {.grid-2}
-::: {.card}
-<h3>Pick a tool</h3>
-
-- Build nightly checkout tests across Chrome, Firefox, and WebKit.
-- Debug a flaky login flow while watching page state change.
-- Extract a table from five sites once and save a CSV.
-- Fill a complex internal form from JSON for a one-time migration.
-:::
-
-::: {.card}
-<h3>Defend the choice</h3>
-
-- What state does the agent need?
-- Does the task need to repeat?
-- Is token cost a constraint?
-- Would a generated test be more valuable than a completed action?
-:::
-::::
-
-## Agent Browser Troubleshooting
-
-| Symptom | Likely cause | First move |
+| Approach | How it works | Agent perspective |
 |---|---|---|
-| Ref does not exist | Page changed after snapshot | Run `agent-browser snapshot -i` again |
-| Typing misses the field | Focus is elsewhere | Click the field ref before `type` |
-| Element is hidden | It is outside view or conditionally rendered | Scroll, wait, or inspect text output |
-| Chrome is missing | Browser binary has not been downloaded | Run `agent-browser install` |
-| Session confusion | Multiple sessions are open | Use named sessions consistently |
+| **Playwright CLI** | Find selector `input[name="user"]`, wait for visibility, type text, handle timing | Requires CSS knowledge, brittle selectors, more "coding" |
+| **Agent Browser** | `snapshot -i` → see `@e1` (username), `@e2` (password) → `fill @e1 "user"` → `fill @e2 "pass"` → `click @e3` | Natural, human-like, deterministic refs, no CSS needed |
 
-## Capstone: Use Both Tools Together
+## Choosing The Browser Tool
+
+<div class="command-grid">
+<div class="command-card"><i class="fa-solid fa-bolt"></i> **One-off task**<span>Agent Browser — move fast with minimal setup</span></div>
+<div class="command-card"><i class="fa-solid fa-magnifying-glass"></i> **Deep reasoning over live state**<span>Playwright MCP — introspect and reason in real-time</span></div>
+<div class="command-card"><i class="fa-solid fa-repeat"></i> **Repeatable CI suite**<span>Playwright Test — durable, multi-browser, version-controlled</span></div>
+<div class="command-card"><i class="fa-solid fa-coins"></i> **Token constrained**<span>Agent Browser — compact snapshots (~200-400 tokens vs 3000+)</span></div>
+</div>
+
+
+## Use Both Tools Together
 
 <div class="kicker"><i class="fa-solid fa-repeat"></i> Final exercise</div>
 
@@ -714,33 +702,6 @@ agent-browser close
 :::
 ::::
 
-<div class="callout-strip"><i class="fa-solid fa-flag-checkered"></i><p>Exit criterion: every participant has completed one full cycle from agent change to commit review to browser verification to fix.</p></div>
-
-## GitHub Pages Deployment
-
-:::: {.grid-2}
-::: {.grid-cell}
-```bash
-# Render the presentation into docs/
-quarto render
-
-# Preview locally
-quarto preview
-```
-:::
-
-::: {.card}
-<h3>Repository settings</h3>
-
-1. Commit `index.qmd`, `_quarto.yml`, and `styles.scss`.
-2. Run `quarto render` before publishing.
-3. In GitHub Pages, set the source to the `docs` folder on `main`.
-4. Open `https://<owner>.github.io/<repo>/` after the Pages build completes.
-:::
-::::
-
-<div class="callout-strip"><i class="fa-brands fa-github"></i><p>This project is configured with `output-dir: docs`, so it matches the simplest GitHub Pages deployment path.</p></div>
-
 ## Resources
 
 :::: {.grid-2}
@@ -759,10 +720,10 @@ quarto preview
 - [Docs](https://agent-browser.dev/)
 - [GitHub Repository](https://github.com/vercel-labs/agent-browser)
 - [Playwright MCP](https://playwright.dev/mcp/introduction)
-- [Playwright Test](https://playwright.dev/docs/intro)
+- [Playwright CLI](https://github.com/microsoft/playwright-cli)
 :::
 ::::
 
 ::: {.hero-line}
-Keep the loop small: change, commit, review, verify, fix. That rhythm is the workshop.
+Keep the loop small: change, commit, review, verify, fix.
 :::

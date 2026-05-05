@@ -242,9 +242,6 @@ QALL meeting
 <p>Decide when to review code, when to automate the browser, and when to turn findings into durable tests.</p>
 </div>
 </div>
-<div class="hero-line">
-<p>The goal is a tight agent workflow: commit small, review fast, inspect the browser.</p>
-</div>
 </section>
 <section id="the-combined-development-loop" class="slide level2">
 <h2>The Combined Development Loop</h2>
@@ -697,8 +694,8 @@ Use it when
 </div>
 </div>
 </section>
-<section id="css-selectors-the-old-way" class="slide level2">
-<h2>CSS Selectors: The Old Way</h2>
+<section id="css-selectors-the-playwright-way" class="slide level2">
+<h2>CSS Selectors: The Playwright Way</h2>
 <div class="kicker">
 <i class="fa-solid fa-code"></i> Query selectors
 </div>
@@ -747,20 +744,23 @@ The CLI talks to a native daemon over Chrome DevTools Protocol. The daemon start
 <span id="cb8-4"><a></a><span class="ex">brew</span> install agent-browser</span>
 <span id="cb8-5"><a></a></span>
 <span id="cb8-6"><a></a><span class="co"># First run downloads Chrome</span></span>
-<span id="cb8-7"><a></a><span class="ex">agent-browser</span> install</span>
-<span id="cb8-8"><a></a></span>
-<span id="cb8-9"><a></a><span class="co"># Smoke test</span></span>
-<span id="cb8-10"><a></a><span class="ex">agent-browser</span> open https://example.com</span>
-<span id="cb8-11"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
-<span id="cb8-12"><a></a><span class="ex">agent-browser</span> close</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-7"><a></a><span class="ex">agent-browser</span> install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="grid-cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a></a>- heading "Example Domain" [ref=e1]</span>
-<span id="cb9-2"><a></a>- link "More information..." [ref=e2]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Smoke test:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="ex">agent-browser</span> open https://posit.co/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a></a>✓ Posit | Data Science Platform for Enterprise Teams</span>
+<span id="cb10-2"><a></a>  https://posit.co/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a></a>- heading "This website uses cookies" [level=2, ref=e139]</span>
+<span id="cb12-2"><a></a>- link "Show details" [ref=e38]</span>
+<span id="cb12-3"><a></a>- button "OK" [ref=e39]</span>
+<span id="cb12-4"><a></a>- link "Skip to main content" [ref=e1]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="ex">agent-browser</span> close</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout-strip">
 <i class="fa-solid fa-terminal"></i>
 <p>
-Try without installing: <code>npx agent-browser open example.com</code>.
+Try without installing: <code>npx agent-browser open posit.co</code>.
 </p>
 </div>
 </div>
@@ -774,21 +774,19 @@ Try without installing: <code>npx agent-browser open example.com</code>.
 <div class="grid-2">
 <div class="grid-cell">
 <p><strong>Option 1: Install the skill (recommended)</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="co"># One-time setup and select Claude Code as the target agent</span></span>
-<span id="cb10-2"><a></a><span class="ex">npx</span> skills add vercel-labs/agent-browser</span>
-<span id="cb10-3"><a></a></span>
-<span id="cb10-4"><a></a><span class="co"># Claude Code now has built-in agent-browser guidance</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="co"># One-time setup and select Claude Code as the target agent</span></span>
+<span id="cb14-2"><a></a><span class="ex">npx</span> skills add vercel-labs/agent-browser</span>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a><span class="co"># Claude Code now has built-in agent-browser guidance</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This installs a discovery skill that teaches Claude Code about agent-browser. The skill content auto-updates with your CLI version.</p>
 </div>
 <div class="grid-cell">
 <p><strong>Option 2: Use the CLI directly</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="co"># In Claude Code terminal</span></span>
-<span id="cb11-2"><a></a><span class="ex">agent-browser</span> open https://example.com</span>
-<span id="cb11-3"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
-<span id="cb11-4"><a></a><span class="ex">agent-browser</span> click @e1</span>
-<span id="cb11-5"><a></a><span class="ex">agent-browser</span> screenshot result.png</span>
-<span id="cb11-6"><a></a><span class="ex">agent-browser</span> close</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Claude Code returns output directly into the conversation. Works without the skill.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="ex">agent-browser</span> open https://posit.co/</span>
+<span id="cb15-2"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
+<span id="cb15-3"><a></a><span class="ex">agent-browser</span> click @e50</span>
+<span id="cb15-4"><a></a><span class="ex">agent-browser</span> screenshot /Users/name/Desktop/result.png</span>
+<span id="cb15-5"><a></a><span class="ex">agent-browser</span> close</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -824,8 +822,8 @@ After installing, use <code>agent-browser skills list</code> to see all availabl
 </p>
 </div>
 </section>
-<section id="lab-3-todomvc-first-run" class="slide level2">
-<h2>Lab 3: TodoMVC First Run</h2>
+<section id="act-3-sample-browser-task" class="slide level2">
+<h2>Act 3: Sample Browser Task</h2>
 <div class="lab-card">
 <h3>
 Goal
@@ -834,19 +832,19 @@ Goal
 </div>
 <div class="grid-2">
 <div class="grid-cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="ex">agent-browser</span> open https://demo.playwright.dev/todomvc/</span>
-<span id="cb12-2"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
-<span id="cb12-3"><a></a></span>
-<span id="cb12-4"><a></a><span class="co"># Find the textbox ref, for example @e1.</span></span>
-<span id="cb12-5"><a></a><span class="ex">agent-browser</span> click @e1</span>
-<span id="cb12-6"><a></a><span class="ex">agent-browser</span> type <span class="st">"Buy milk"</span></span>
-<span id="cb12-7"><a></a><span class="ex">agent-browser</span> press Enter</span>
-<span id="cb12-8"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
-<span id="cb12-9"><a></a><span class="ex">agent-browser</span> close</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a></a><span class="ex">agent-browser</span> open https://demo.playwright.dev/todomvc/</span>
+<span id="cb16-2"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
+<span id="cb16-3"><a></a></span>
+<span id="cb16-4"><a></a><span class="co"># Find the textbox ref, for example @e1.</span></span>
+<span id="cb16-5"><a></a><span class="ex">agent-browser</span> click @e1</span>
+<span id="cb16-6"><a></a><span class="ex">agent-browser</span> type <span class="st">"Buy Dr. Pepper"</span></span>
+<span id="cb16-7"><a></a><span class="ex">agent-browser</span> press Enter</span>
+<span id="cb16-8"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
+<span id="cb16-9"><a></a><span class="ex">agent-browser</span> close</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="prompt-box">
 <p>Prompt to your coding agent:</p>
-<p>Use Agent Browser to add a todo named “Buy milk” at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot.</p>
+<p>Use Agent Browser to add a todo named “Buy Dr.&nbsp;Pepper” at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot.</p>
 </div>
 </div>
 </section>
@@ -860,16 +858,21 @@ Goal
 <h3>
 Simple exploration
 </h3>
-<p>“Use agent-browser to open https://example.com, take a snapshot, and describe what you see. List the clickable elements by their refs.”</p>
+<p>“Use agent-browser to open https://positron.posit.co/keyboard-shortcuts.html, take a snapshot, and describe what you see. List the clickable elements by their refs.”</p>
 <p>Claude Code runs commands and reads the snapshot output.</p>
 </div>
 <div class="card">
 <h3>
 Form interaction
 </h3>
-<p>“Use agent-browser to navigate to https://example.com/form, find the email field, type test@example.com, click submit, and show a screenshot.”</p>
+<p>“Use agent-browser to navigate to https://posit.co/schedule-a-call, find the email field, type test@posit.co, click submit, and show a screenshot.”</p>
 <p>Claude Code chains commands and maps human language to refs.</p>
 </div>
+</div>
+</section>
+<section id="prompting-claude-code-for-browser-tasks-cont." class="slide level2">
+<h2>Prompting Claude Code For Browser Tasks (cont.)</h2>
+<div class="grid-2">
 <div class="card">
 <h3>
 With the skill
@@ -920,17 +923,17 @@ Debugging
 <h2>Pattern: Snapshot, Act, Verify</h2>
 <div class="grid-2">
 <div class="grid-cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
-<span id="cb13-2"><a></a><span class="co"># - textbox "Email" [ref=e1]</span></span>
-<span id="cb13-3"><a></a><span class="co"># - textbox "Password" [ref=e2]</span></span>
-<span id="cb13-4"><a></a><span class="co"># - button "Login" [ref=e3]</span></span>
-<span id="cb13-5"><a></a></span>
-<span id="cb13-6"><a></a><span class="ex">agent-browser</span> fill @e1 <span class="st">"test@example.com"</span></span>
-<span id="cb13-7"><a></a><span class="ex">agent-browser</span> fill @e2 <span class="st">"password123"</span></span>
-<span id="cb13-8"><a></a><span class="ex">agent-browser</span> click @e3</span>
-<span id="cb13-9"><a></a></span>
-<span id="cb13-10"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
-<span id="cb13-11"><a></a><span class="ex">agent-browser</span> screenshot login-result.png</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
+<span id="cb17-2"><a></a><span class="co"># - textbox "Email" [ref=e1]</span></span>
+<span id="cb17-3"><a></a><span class="co"># - textbox "Password" [ref=e2]</span></span>
+<span id="cb17-4"><a></a><span class="co"># - button "Login" [ref=e3]</span></span>
+<span id="cb17-5"><a></a></span>
+<span id="cb17-6"><a></a><span class="ex">agent-browser</span> fill @e1 <span class="st">"test@example.com"</span></span>
+<span id="cb17-7"><a></a><span class="ex">agent-browser</span> fill @e2 <span class="st">"password123"</span></span>
+<span id="cb17-8"><a></a><span class="ex">agent-browser</span> click @e3</span>
+<span id="cb17-9"><a></a></span>
+<span id="cb17-10"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
+<span id="cb17-11"><a></a><span class="ex">agent-browser</span> screenshot login-result.png</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="card">
 <h3>
@@ -945,115 +948,38 @@ Instruction pattern
 </div>
 </div>
 </section>
-<section id="lab-4-exploratory-browser-task" class="slide level2">
-<h2>Lab 4: Exploratory Browser Task</h2>
+<section id="act-4-exploratory-browser-task" class="slide level2">
+<h2>Act 4: Exploratory Browser Task</h2>
 <div class="lab-card">
 <h3>
 Scenario
 </h3>
-<p>Test whether TodoMVC renders a script-like todo as text or executes it.</p>
+<p>Test whether the Todo List renders a script-like todo as text or executes it.</p>
 </div>
 <div class="grid-2">
 <div class="prompt-box">
 <p>Prompt to your coding agent:</p>
-<p>Use Agent Browser to test TodoMVC with this todo text: <code>&lt;script&gt;alert('xss')&lt;/script&gt;</code></p>
+<p>Use Agent Browser to test https://demo.playwright.dev/todomvc/ with this todo text: <code>&lt;script&gt;alert('xss')&lt;/script&gt;</code></p>
 <p>Open the app, snapshot to find the input, add the todo, save a screenshot as xss-test.png, snapshot again, and report whether the text rendered or executed.</p>
 </div>
 <div class="grid-cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="ex">agent-browser</span> open https://demo.playwright.dev/todomvc/</span>
-<span id="cb14-2"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
-<span id="cb14-3"><a></a><span class="ex">agent-browser</span> click @e1</span>
-<span id="cb14-4"><a></a><span class="ex">agent-browser</span> type <span class="st">"&lt;script&gt;alert('xss')&lt;/script&gt;"</span></span>
-<span id="cb14-5"><a></a><span class="ex">agent-browser</span> press Enter</span>
-<span id="cb14-6"><a></a><span class="ex">agent-browser</span> screenshot xss-test.png</span>
-<span id="cb14-7"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
-<span id="cb14-8"><a></a><span class="ex">agent-browser</span> close</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a></a><span class="ex">agent-browser</span> open https://demo.playwright.dev/todomvc/</span>
+<span id="cb18-2"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
+<span id="cb18-3"><a></a><span class="ex">agent-browser</span> click @e1</span>
+<span id="cb18-4"><a></a><span class="ex">agent-browser</span> type <span class="st">"&lt;script&gt;alert('xss')&lt;/script&gt;"</span></span>
+<span id="cb18-5"><a></a><span class="ex">agent-browser</span> press Enter</span>
+<span id="cb18-6"><a></a><span class="ex">agent-browser</span> screenshot xss-test.png</span>
+<span id="cb18-7"><a></a><span class="ex">agent-browser</span> snapshot <span class="at">-i</span></span>
+<span id="cb18-8"><a></a><span class="ex">agent-browser</span> close</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 <section id="choosing-the-browser-tool" class="slide level2">
 <h2>Choosing The Browser Tool</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Need</th>
-<th>Agent Browser</th>
-<th>Playwright MCP</th>
-<th>Playwright Test</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>One-off browser task</td>
-<td>Best</td>
-<td>Heavy</td>
-<td>Heavy</td>
-</tr>
-<tr class="even">
-<td>Deep exploratory reasoning</td>
-<td>Useful</td>
-<td>Best</td>
-<td>Limited</td>
-</tr>
-<tr class="odd">
-<td>Repeatable CI suite</td>
-<td>Limited</td>
-<td>Limited</td>
-<td>Best</td>
-</tr>
-<tr class="even">
-<td>Token efficiency</td>
-<td>High</td>
-<td>Low</td>
-<td>High</td>
-</tr>
-<tr class="odd">
-<td>Multi-browser coverage</td>
-<td>Limited</td>
-<td>Limited</td>
-<td>Best</td>
-</tr>
-<tr class="even">
-<td>Agent can inspect live page</td>
-<td>Best</td>
-<td>Best</td>
-<td>Indirect</td>
-</tr>
-</tbody>
-</table>
-<div class="small-note">
-Rule of thumb: use Agent Browser to move quickly, Playwright MCP to reason deeply over live state, and Playwright Test when behavior must become a durable suite.
+<div class="kicker">
+<i class="fa-solid fa-compare"></i> Comparison
 </div>
-</section>
-<section id="scenario-breakouts" class="slide level2">
-<h2>Scenario Breakouts</h2>
-<div class="grid-2">
-<div class="card">
-<h3>
-Pick a tool
-</h3>
-<ul>
-<li>Build nightly checkout tests across Chrome, Firefox, and WebKit.</li>
-<li>Debug a flaky login flow while watching page state change.</li>
-<li>Extract a table from five sites once and save a CSV.</li>
-<li>Fill a complex internal form from JSON for a one-time migration.</li>
-</ul>
-</div>
-<div class="card">
-<h3>
-Defend the choice
-</h3>
-<ul>
-<li>What state does the agent need?</li>
-<li>Does the task need to repeat?</li>
-<li>Is token cost a constraint?</li>
-<li>Would a generated test be more valuable than a completed action?</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="agent-browser-troubleshooting" class="slide level2">
-<h2>Agent Browser Troubleshooting</h2>
+<h3 id="example-log-in-to-a-site">Example: “Log in to a site”</h3>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -1062,42 +988,44 @@ Defend the choice
 </colgroup>
 <thead>
 <tr class="header">
-<th>Symptom</th>
-<th>Likely cause</th>
-<th>First move</th>
+<th>Approach</th>
+<th>How it works</th>
+<th>Agent perspective</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ref does not exist</td>
-<td>Page changed after snapshot</td>
-<td>Run <code>agent-browser snapshot -i</code> again</td>
+<td><strong>Playwright CLI</strong></td>
+<td>Find selector <code>input[name="user"]</code>, wait for visibility, type text, handle timing</td>
+<td>Requires CSS knowledge, brittle selectors, more “coding”</td>
 </tr>
 <tr class="even">
-<td>Typing misses the field</td>
-<td>Focus is elsewhere</td>
-<td>Click the field ref before <code>type</code></td>
-</tr>
-<tr class="odd">
-<td>Element is hidden</td>
-<td>It is outside view or conditionally rendered</td>
-<td>Scroll, wait, or inspect text output</td>
-</tr>
-<tr class="even">
-<td>Chrome is missing</td>
-<td>Browser binary has not been downloaded</td>
-<td>Run <code>agent-browser install</code></td>
-</tr>
-<tr class="odd">
-<td>Session confusion</td>
-<td>Multiple sessions are open</td>
-<td>Use named sessions consistently</td>
+<td><strong>Agent Browser</strong></td>
+<td><code>snapshot -i</code> → see <code>@e1</code> (username), <code>@e2</code> (password) → <code>fill @e1 "user"</code> → <code>fill @e2 "pass"</code> → <code>click @e3</code></td>
+<td>Natural, human-like, deterministic refs, no CSS needed</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="capstone-use-both-tools-together" class="slide level2">
-<h2>Capstone: Use Both Tools Together</h2>
+<section id="choosing-the-browser-tool-1" class="slide level2">
+<h2>Choosing The Browser Tool</h2>
+<div class="command-grid">
+<div class="command-card">
+<i class="fa-solid fa-bolt"></i> <strong>One-off task</strong><span>Agent Browser — move fast with minimal setup</span>
+</div>
+<div class="command-card">
+<i class="fa-solid fa-magnifying-glass"></i> <strong>Deep reasoning over live state</strong><span>Playwright MCP — introspect and reason in real-time</span>
+</div>
+<div class="command-card">
+<i class="fa-solid fa-repeat"></i> <strong>Repeatable CI suite</strong><span>Playwright Test — durable, multi-browser, version-controlled</span>
+</div>
+<div class="command-card">
+<i class="fa-solid fa-coins"></i> <strong>Token constrained</strong><span>Agent Browser — compact snapshots (~200-400 tokens vs 3000+)</span>
+</div>
+</div>
+</section>
+<section id="use-both-tools-together" class="slide level2">
+<h2>Use Both Tools Together</h2>
 <div class="kicker">
 <i class="fa-solid fa-repeat"></i> Final exercise
 </div>
@@ -1123,41 +1051,6 @@ Part B: browser loop
 </ol>
 </div>
 </div>
-<div class="callout-strip">
-<i class="fa-solid fa-flag-checkered"></i>
-<p>
-Exit criterion: every participant has completed one full cycle from agent change to commit review to browser verification to fix.
-</p>
-</div>
-</section>
-<section id="github-pages-deployment" class="slide level2">
-<h2>GitHub Pages Deployment</h2>
-<div class="grid-2">
-<div class="grid-cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="co"># Render the presentation into docs/</span></span>
-<span id="cb15-2"><a></a><span class="ex">quarto</span> render</span>
-<span id="cb15-3"><a></a></span>
-<span id="cb15-4"><a></a><span class="co"># Preview locally</span></span>
-<span id="cb15-5"><a></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="card">
-<h3>
-Repository settings
-</h3>
-<ol type="1">
-<li>Commit <code>index.qmd</code>, <code>_quarto.yml</code>, and <code>styles.scss</code>.</li>
-<li>Run <code>quarto render</code> before publishing.</li>
-<li>In GitHub Pages, set the source to the <code>docs</code> folder on <code>main</code>.</li>
-<li>Open <code>https://&lt;owner&gt;.github.io/&lt;repo&gt;/</code> after the Pages build completes.</li>
-</ol>
-</div>
-</div>
-<div class="callout-strip">
-<i class="fa-brands fa-github"></i>
-<p>
-This project is configured with <code>output-dir: docs</code>, so it matches the simplest GitHub Pages deployment path.
-</p>
-</div>
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
@@ -1181,12 +1074,12 @@ Agent Browser
 <li><a href="https://agent-browser.dev/">Docs</a></li>
 <li><a href="https://github.com/vercel-labs/agent-browser">GitHub Repository</a></li>
 <li><a href="https://playwright.dev/mcp/introduction">Playwright MCP</a></li>
-<li><a href="https://playwright.dev/docs/intro">Playwright Test</a></li>
+<li><a href="https://github.com/microsoft/playwright-cli">Playwright CLI</a></li>
 </ul>
 </div>
 </div>
 <div class="hero-line">
-<p>Keep the loop small: change, commit, review, verify, fix. That rhythm is the workshop.</p>
+<p>Keep the loop small: change, commit, review, verify, fix.</p>
 </div>
 
 

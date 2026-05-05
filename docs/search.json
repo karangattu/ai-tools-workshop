@@ -4,7 +4,7 @@
     "href": "index.html#what-you-will-leave-with",
     "title": "RoboRev + Agent Browser",
     "section": "What You Will Leave With",
-    "text": "What You Will Leave With\n\n Workshop outcome\n\n\n\n\n\n\nReview Loop\nUse RoboRev to catch agent-written code issues while the work is still fresh.\n\n\n\n\n\nBrowser Loop\nUse Agent Browser to navigate, inspect, click, type, and verify through compact refs.\n\n\n\n\n\nCombined Loop\nDecide when to review code, when to automate the browser, and when to turn findings into durable tests.\n\n\n\nThe goal is a tight agent workflow: commit small, review fast, inspect the browser."
+    "text": "What You Will Leave With\n\n Workshop outcome\n\n\n\n\n\n\nReview Loop\nUse RoboRev to catch agent-written code issues while the work is still fresh.\n\n\n\n\n\nBrowser Loop\nUse Agent Browser to navigate, inspect, click, type, and verify through compact refs.\n\n\n\n\n\nCombined Loop\nDecide when to review code, when to automate the browser, and when to turn findings into durable tests."
   },
   {
     "objectID": "index.html#the-combined-development-loop",
@@ -147,11 +147,11 @@
     "text": "Why Refs Matter\n\n\n\n\n\nContext Efficient\nA snapshot can describe interactive page state in hundreds of tokens instead of thousands.\n\n\n\n\n\nDeterministic\nThe agent clicks @e2, not the second button it guesses from a screenshot.\n\n\n\n\n\nReadable\nThe agent can reason over text output that names roles, labels, and refs."
   },
   {
-    "objectID": "index.html#css-selectors-the-old-way",
-    "href": "index.html#css-selectors-the-old-way",
+    "objectID": "index.html#css-selectors-the-playwright-way",
+    "href": "index.html#css-selectors-the-playwright-way",
     "title": "RoboRev + Agent Browser",
-    "section": "CSS Selectors: The Old Way",
-    "text": "CSS Selectors: The Old Way\n\n Query selectors\n\n\nCSS selectors require you to inspect, find paths, and hope the selector remains stable. Brittle and token-expensive."
+    "section": "CSS Selectors: The Playwright Way",
+    "text": "CSS Selectors: The Playwright Way\n\n Query selectors\n\n\nCSS selectors require you to inspect, find paths, and hope the selector remains stable. Brittle and token-expensive."
   },
   {
     "objectID": "index.html#refs-the-agent-browser-way",
@@ -172,14 +172,14 @@
     "href": "index.html#install-and-smoke-test",
     "title": "RoboRev + Agent Browser",
     "section": "Install And Smoke Test",
-    "text": "Install And Smoke Test\n\n\n# Install\nnpm install -g agent-browser\n# or on macOS\nbrew install agent-browser\n\n# First run downloads Chrome\nagent-browser install\n\n# Smoke test\nagent-browser open https://example.com\nagent-browser snapshot -i\nagent-browser close\n\n\n- heading \"Example Domain\" [ref=e1]\n- link \"More information...\" [ref=e2]\n\n\n\nTry without installing: npx agent-browser open example.com."
+    "text": "Install And Smoke Test\n\n\n# Install\nnpm install -g agent-browser\n# or on macOS\nbrew install agent-browser\n\n# First run downloads Chrome\nagent-browser install\n\n\nSmoke test:\nagent-browser open https://posit.co/\n✓ Posit | Data Science Platform for Enterprise Teams\n  https://posit.co/\nagent-browser snapshot -i\n- heading \"This website uses cookies\" [level=2, ref=e139]\n- link \"Show details\" [ref=e38]\n- button \"OK\" [ref=e39]\n- link \"Skip to main content\" [ref=e1]\nagent-browser close\n\n\n\nTry without installing: npx agent-browser open posit.co."
   },
   {
     "objectID": "index.html#using-agent-browser-in-claude-code",
     "href": "index.html#using-agent-browser-in-claude-code",
     "title": "RoboRev + Agent Browser",
     "section": "Using Agent Browser In Claude Code",
-    "text": "Using Agent Browser In Claude Code\n\n Two ways to use it\n\n\n\nOption 1: Install the skill (recommended)\n# One-time setup and select Claude Code as the target agent\nnpx skills add vercel-labs/agent-browser\n\n# Claude Code now has built-in agent-browser guidance\nThis installs a discovery skill that teaches Claude Code about agent-browser. The skill content auto-updates with your CLI version.\n\n\nOption 2: Use the CLI directly\n# In Claude Code terminal\nagent-browser open https://example.com\nagent-browser snapshot -i\nagent-browser click @e1\nagent-browser screenshot result.png\nagent-browser close\nClaude Code returns output directly into the conversation. Works without the skill."
+    "text": "Using Agent Browser In Claude Code\n\n Two ways to use it\n\n\n\nOption 1: Install the skill (recommended)\n# One-time setup and select Claude Code as the target agent\nnpx skills add vercel-labs/agent-browser\n\n# Claude Code now has built-in agent-browser guidance\nThis installs a discovery skill that teaches Claude Code about agent-browser. The skill content auto-updates with your CLI version.\n\n\nOption 2: Use the CLI directly\nagent-browser open https://posit.co/\nagent-browser snapshot -i\nagent-browser click @e50\nagent-browser screenshot /Users/name/Desktop/result.png\nagent-browser close"
   },
   {
     "objectID": "index.html#agent-browser-skills",
@@ -189,18 +189,25 @@
     "text": "Agent Browser Skills\n\n Available skills\n\n\n\ncoreCore browser automation: snapshots, forms, screenshots, data extraction, auth.\n\n\ndogfoodSystematic exploratory testing with bug discovery and UX analysis.\n\n\nelectronAutomate Electron apps: VS Code, Slack, Discord, Figma, etc.\n\n\nslackNavigate Slack, check unreads, search, send messages, extract data.\n\n\nvercel-sandboxRun agent-browser inside ephemeral Vercel Sandbox microVMs.\n\n\nagentcoreRun agent-browser on AWS Bedrock AgentCore cloud browsers.\n\n\n\n\n\nAfter installing, use agent-browser skills list to see all available skills, then agent-browser skills get &lt;name&gt; to load one into Claude Code."
   },
   {
-    "objectID": "index.html#lab-3-todomvc-first-run",
-    "href": "index.html#lab-3-todomvc-first-run",
+    "objectID": "index.html#act-3-sample-browser-task",
+    "href": "index.html#act-3-sample-browser-task",
     "title": "RoboRev + Agent Browser",
-    "section": "Lab 3: TodoMVC First Run",
-    "text": "Lab 3: TodoMVC First Run\n\n\nGoal\n\nUse Agent Browser to add a todo, verify it appears, and close the browser cleanly.\n\n\n\nagent-browser open https://demo.playwright.dev/todomvc/\nagent-browser snapshot -i\n\n# Find the textbox ref, for example @e1.\nagent-browser click @e1\nagent-browser type \"Buy milk\"\nagent-browser press Enter\nagent-browser snapshot -i\nagent-browser close\n\n\nPrompt to your coding agent:\nUse Agent Browser to add a todo named “Buy milk” at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot."
+    "section": "Act 3: Sample Browser Task",
+    "text": "Act 3: Sample Browser Task\n\n\nGoal\n\nUse Agent Browser to add a todo, verify it appears, and close the browser cleanly.\n\n\n\nagent-browser open https://demo.playwright.dev/todomvc/\nagent-browser snapshot -i\n\n# Find the textbox ref, for example @e1.\nagent-browser click @e1\nagent-browser type \"Buy Dr. Pepper\"\nagent-browser press Enter\nagent-browser snapshot -i\nagent-browser close\n\n\nPrompt to your coding agent:\nUse Agent Browser to add a todo named “Buy Dr. Pepper” at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot."
   },
   {
     "objectID": "index.html#prompting-claude-code-for-browser-tasks",
     "href": "index.html#prompting-claude-code-for-browser-tasks",
     "title": "RoboRev + Agent Browser",
     "section": "Prompting Claude Code For Browser Tasks",
-    "text": "Prompting Claude Code For Browser Tasks\n\n Example prompts\n\n\n\n\nSimple exploration\n\n“Use agent-browser to open https://example.com, take a snapshot, and describe what you see. List the clickable elements by their refs.”\nClaude Code runs commands and reads the snapshot output.\n\n\n\nForm interaction\n\n“Use agent-browser to navigate to https://example.com/form, find the email field, type test@example.com, click submit, and show a screenshot.”\nClaude Code chains commands and maps human language to refs.\n\n\n\nWith the skill\n\nAfter installing the skill, Claude Code knows to suggest agent-browser skills get core for detailed workflows.\n“I need to systematically test my app. What should I use?”\nClaude Code will recommend the dogfood or core skill.\n\n\n\nDebugging\n\n“Something broke on the login page. Use agent-browser to open [url], take a screenshot, and describe what you see.”\nClaude Code provides visual + accessibility tree context."
+    "text": "Prompting Claude Code For Browser Tasks\n\n Example prompts\n\n\n\n\nSimple exploration\n\n“Use agent-browser to open https://positron.posit.co/keyboard-shortcuts.html, take a snapshot, and describe what you see. List the clickable elements by their refs.”\nClaude Code runs commands and reads the snapshot output.\n\n\n\nForm interaction\n\n“Use agent-browser to navigate to https://posit.co/schedule-a-call, find the email field, type test@posit.co, click submit, and show a screenshot.”\nClaude Code chains commands and maps human language to refs."
+  },
+  {
+    "objectID": "index.html#prompting-claude-code-for-browser-tasks-cont.",
+    "href": "index.html#prompting-claude-code-for-browser-tasks-cont.",
+    "title": "RoboRev + Agent Browser",
+    "section": "Prompting Claude Code For Browser Tasks (cont.)",
+    "text": "Prompting Claude Code For Browser Tasks (cont.)\n\n\n\nWith the skill\n\nAfter installing the skill, Claude Code knows to suggest agent-browser skills get core for detailed workflows.\n“I need to systematically test my app. What should I use?”\nClaude Code will recommend the dogfood or core skill.\n\n\n\nDebugging\n\n“Something broke on the login page. Use agent-browser to open [url], take a screenshot, and describe what you see.”\nClaude Code provides visual + accessibility tree context."
   },
   {
     "objectID": "index.html#essential-commands",
@@ -217,52 +224,38 @@
     "text": "Pattern: Snapshot, Act, Verify\n\n\nagent-browser snapshot -i\n# - textbox \"Email\" [ref=e1]\n# - textbox \"Password\" [ref=e2]\n# - button \"Login\" [ref=e3]\n\nagent-browser fill @e1 \"test@example.com\"\nagent-browser fill @e2 \"password123\"\nagent-browser click @e3\n\nagent-browser snapshot -i\nagent-browser screenshot login-result.png\n\n\n\nInstruction pattern\n\n\nAsk the agent to snapshot before acting.\nMake it name the ref it plans to use.\nHave it verify after every meaningful state change.\nSave screenshots when visual evidence matters."
   },
   {
-    "objectID": "index.html#lab-4-exploratory-browser-task",
-    "href": "index.html#lab-4-exploratory-browser-task",
+    "objectID": "index.html#act-4-exploratory-browser-task",
+    "href": "index.html#act-4-exploratory-browser-task",
     "title": "RoboRev + Agent Browser",
-    "section": "Lab 4: Exploratory Browser Task",
-    "text": "Lab 4: Exploratory Browser Task\n\n\nScenario\n\nTest whether TodoMVC renders a script-like todo as text or executes it.\n\n\n\nPrompt to your coding agent:\nUse Agent Browser to test TodoMVC with this todo text: &lt;script&gt;alert('xss')&lt;/script&gt;\nOpen the app, snapshot to find the input, add the todo, save a screenshot as xss-test.png, snapshot again, and report whether the text rendered or executed.\n\n\nagent-browser open https://demo.playwright.dev/todomvc/\nagent-browser snapshot -i\nagent-browser click @e1\nagent-browser type \"&lt;script&gt;alert('xss')&lt;/script&gt;\"\nagent-browser press Enter\nagent-browser screenshot xss-test.png\nagent-browser snapshot -i\nagent-browser close"
+    "section": "Act 4: Exploratory Browser Task",
+    "text": "Act 4: Exploratory Browser Task\n\n\nScenario\n\nTest whether the Todo List renders a script-like todo as text or executes it.\n\n\n\nPrompt to your coding agent:\nUse Agent Browser to test https://demo.playwright.dev/todomvc/ with this todo text: &lt;script&gt;alert('xss')&lt;/script&gt;\nOpen the app, snapshot to find the input, add the todo, save a screenshot as xss-test.png, snapshot again, and report whether the text rendered or executed.\n\n\nagent-browser open https://demo.playwright.dev/todomvc/\nagent-browser snapshot -i\nagent-browser click @e1\nagent-browser type \"&lt;script&gt;alert('xss')&lt;/script&gt;\"\nagent-browser press Enter\nagent-browser screenshot xss-test.png\nagent-browser snapshot -i\nagent-browser close"
   },
   {
     "objectID": "index.html#choosing-the-browser-tool",
     "href": "index.html#choosing-the-browser-tool",
     "title": "RoboRev + Agent Browser",
     "section": "Choosing The Browser Tool",
-    "text": "Choosing The Browser Tool\n\n\n\nNeed\nAgent Browser\nPlaywright MCP\nPlaywright Test\n\n\n\n\nOne-off browser task\nBest\nHeavy\nHeavy\n\n\nDeep exploratory reasoning\nUseful\nBest\nLimited\n\n\nRepeatable CI suite\nLimited\nLimited\nBest\n\n\nToken efficiency\nHigh\nLow\nHigh\n\n\nMulti-browser coverage\nLimited\nLimited\nBest\n\n\nAgent can inspect live page\nBest\nBest\nIndirect\n\n\n\n\nRule of thumb: use Agent Browser to move quickly, Playwright MCP to reason deeply over live state, and Playwright Test when behavior must become a durable suite."
+    "text": "Choosing The Browser Tool\n\n Comparison\n\nExample: “Log in to a site”\n\n\n\n\n\n\n\n\nApproach\nHow it works\nAgent perspective\n\n\n\n\nPlaywright CLI\nFind selector input[name=\"user\"], wait for visibility, type text, handle timing\nRequires CSS knowledge, brittle selectors, more “coding”\n\n\nAgent Browser\nsnapshot -i → see @e1 (username), @e2 (password) → fill @e1 \"user\" → fill @e2 \"pass\" → click @e3\nNatural, human-like, deterministic refs, no CSS needed"
   },
   {
-    "objectID": "index.html#scenario-breakouts",
-    "href": "index.html#scenario-breakouts",
+    "objectID": "index.html#choosing-the-browser-tool-1",
+    "href": "index.html#choosing-the-browser-tool-1",
     "title": "RoboRev + Agent Browser",
-    "section": "Scenario Breakouts",
-    "text": "Scenario Breakouts\n\n\n\nPick a tool\n\n\nBuild nightly checkout tests across Chrome, Firefox, and WebKit.\nDebug a flaky login flow while watching page state change.\nExtract a table from five sites once and save a CSV.\nFill a complex internal form from JSON for a one-time migration.\n\n\n\n\nDefend the choice\n\n\nWhat state does the agent need?\nDoes the task need to repeat?\nIs token cost a constraint?\nWould a generated test be more valuable than a completed action?"
+    "section": "Choosing The Browser Tool",
+    "text": "Choosing The Browser Tool\n\n\n One-off taskAgent Browser — move fast with minimal setup\n\n\n Deep reasoning over live statePlaywright MCP — introspect and reason in real-time\n\n\n Repeatable CI suitePlaywright Test — durable, multi-browser, version-controlled\n\n\n Token constrainedAgent Browser — compact snapshots (~200-400 tokens vs 3000+)"
   },
   {
-    "objectID": "index.html#agent-browser-troubleshooting",
-    "href": "index.html#agent-browser-troubleshooting",
+    "objectID": "index.html#use-both-tools-together",
+    "href": "index.html#use-both-tools-together",
     "title": "RoboRev + Agent Browser",
-    "section": "Agent Browser Troubleshooting",
-    "text": "Agent Browser Troubleshooting\n\n\n\n\n\n\n\n\nSymptom\nLikely cause\nFirst move\n\n\n\n\nRef does not exist\nPage changed after snapshot\nRun agent-browser snapshot -i again\n\n\nTyping misses the field\nFocus is elsewhere\nClick the field ref before type\n\n\nElement is hidden\nIt is outside view or conditionally rendered\nScroll, wait, or inspect text output\n\n\nChrome is missing\nBrowser binary has not been downloaded\nRun agent-browser install\n\n\nSession confusion\nMultiple sessions are open\nUse named sessions consistently"
-  },
-  {
-    "objectID": "index.html#capstone-use-both-tools-together",
-    "href": "index.html#capstone-use-both-tools-together",
-    "title": "RoboRev + Agent Browser",
-    "section": "Capstone: Use Both Tools Together",
-    "text": "Capstone: Use Both Tools Together\n\n Final exercise\n\n\n\n\nPart A: code loop\n\n\nAsk the agent to add or adjust one UI behavior.\nCommit the change.\nOpen RoboRev and inspect the queued review.\n\n\n\n\nPart B: browser loop\n\n\nUse Agent Browser to exercise the changed UI.\nSave a screenshot or snapshot evidence.\nFeed both RoboRev findings and browser evidence back into the agent.\n\n\n\n\n\n\nExit criterion: every participant has completed one full cycle from agent change to commit review to browser verification to fix."
-  },
-  {
-    "objectID": "index.html#github-pages-deployment",
-    "href": "index.html#github-pages-deployment",
-    "title": "RoboRev + Agent Browser",
-    "section": "GitHub Pages Deployment",
-    "text": "GitHub Pages Deployment\n\n\n# Render the presentation into docs/\nquarto render\n\n# Preview locally\nquarto preview\n\n\n\nRepository settings\n\n\nCommit index.qmd, _quarto.yml, and styles.scss.\nRun quarto render before publishing.\nIn GitHub Pages, set the source to the docs folder on main.\nOpen https://&lt;owner&gt;.github.io/&lt;repo&gt;/ after the Pages build completes.\n\n\n\n\n\n\nThis project is configured with output-dir: docs, so it matches the simplest GitHub Pages deployment path."
+    "section": "Use Both Tools Together",
+    "text": "Use Both Tools Together\n\n Final exercise\n\n\n\n\nPart A: code loop\n\n\nAsk the agent to add or adjust one UI behavior.\nCommit the change.\nOpen RoboRev and inspect the queued review.\n\n\n\n\nPart B: browser loop\n\n\nUse Agent Browser to exercise the changed UI.\nSave a screenshot or snapshot evidence.\nFeed both RoboRev findings and browser evidence back into the agent."
   },
   {
     "objectID": "index.html#resources",
     "href": "index.html#resources",
     "title": "RoboRev + Agent Browser",
     "section": "Resources",
-    "text": "Resources\n\n\n\nRoboRev\n\n\nQuick Start\nCLI Commands\nAgent Skills\nGitHub Repository\n\n\n\n\nAgent Browser\n\n\nDocs\nGitHub Repository\nPlaywright MCP\nPlaywright Test\n\n\n\n\nKeep the loop small: change, commit, review, verify, fix. That rhythm is the workshop."
+    "text": "Resources\n\n\n\nRoboRev\n\n\nQuick Start\nCLI Commands\nAgent Skills\nGitHub Repository\n\n\n\n\nAgent Browser\n\n\nDocs\nGitHub Repository\nPlaywright MCP\nPlaywright CLI\n\n\n\n\nKeep the loop small: change, commit, review, verify, fix."
   }
 ]
