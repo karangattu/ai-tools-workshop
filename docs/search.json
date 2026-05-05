@@ -112,6 +112,20 @@
     "text": "RoboRev Troubleshooting Drill\n\n\n\n\n\n\n\n\nSymptom\nFirst check\nUseful command\n\n\n\n\nReviews are not appearing\nDid a commit happen after init?\nroborev status\n\n\nHook looks wrong\nIs .git/hooks/post-commit present?\nroborev install-hook --force\n\n\nAgent is unavailable\nAre agent CLIs and API keys configured?\nroborev check-agents\n\n\nReview is stuck\nDid the daemon or job fail?\nroborev log &lt;job_id&gt;\n\n\nQueue is noisy\nAre low severity findings useful?\nroborev fix --min-severity medium"
   },
   {
+    "objectID": "index.html#configure-roborev-for-claude-code",
+    "href": "index.html#configure-roborev-for-claude-code",
+    "title": "RoboRev + Agent Browser",
+    "section": "Configure RoboRev For Claude Code",
+    "text": "Configure RoboRev For Claude Code\n\n Agent integration\n\n\n\n# ~/.roborev/config.toml\n# Default agent when no workflow-specific agent is set.\ndefault_agent = 'claude-code'\ndefault_model = 'claude-sonnet-4-6'\ndefault_backup_agent = ''\ndefault_backup_model = ''\n\nreview_reasoning = 'thorough'\nrefine_reasoning = 'standard'\nfix_reasoning = 'standard'\nreview_agent = 'claude-code'\nreview_model = 'claude-sonnet-4-6'\n\n\n# Verify configuration\nroborev config list --global --show-origin\n\n# Check agent is healthy\nroborev check-agents --agent claude-code\n\n# Use claude-code by default\nexport ROBOREV_AGENT=claude-code\nModel mapping: - Balanced: Sonnet 4.6 for daily work - Fast: Haiku 4.5 for quick lanes - Thorough: Opus 4.6 for deep dives - Security: Opus 4.7 for risky code - Design: Opus 4.7 for architecture"
+  },
+  {
+    "objectID": "index.html#roborev-in-action",
+    "href": "index.html#roborev-in-action",
+    "title": "RoboRev + Agent Browser",
+    "section": "RoboRev In Action",
+    "text": "RoboRev In Action\n\n Example review\n\n\nRoboRev code review example showing a detailed review with multiple findings, file snippets, and actionable feedback."
+  },
+  {
     "objectID": "index.html#section-2-agent-browser",
     "href": "index.html#section-2-agent-browser",
     "title": "RoboRev + Agent Browser",
@@ -147,11 +161,32 @@
     "text": "Install And Smoke Test\n\n\n# Install\nnpm install -g agent-browser\n# or on macOS\nbrew install agent-browser\n\n# First run downloads Chrome\nagent-browser install\n\n# Smoke test\nagent-browser open https://example.com\nagent-browser snapshot -i\nagent-browser close\n\n\n- heading \"Example Domain\" [ref=e1]\n- link \"More information...\" [ref=e2]\n\n\n\nTry without installing: npx agent-browser open example.com."
   },
   {
+    "objectID": "index.html#using-agent-browser-in-claude-code",
+    "href": "index.html#using-agent-browser-in-claude-code",
+    "title": "RoboRev + Agent Browser",
+    "section": "Using Agent Browser In Claude Code",
+    "text": "Using Agent Browser In Claude Code\n\n Two ways to use it\n\n\n\nOption 1: Install the skill (recommended)\n# One-time setup\nnpx skills add vercel-labs/agent-browser\n\n# Claude Code now has built-in agent-browser guidance\nThis installs a discovery skill that teaches Claude Code about agent-browser. The skill content auto-updates with your CLI version.\n\n\nOption 2: Use the CLI directly\n# In Claude Code terminal\nagent-browser open https://example.com\nagent-browser snapshot -i\nagent-browser click @e1\nagent-browser screenshot result.png\nagent-browser close\nClaude Code returns output directly into the conversation. Works without the skill."
+  },
+  {
+    "objectID": "index.html#agent-browser-skills",
+    "href": "index.html#agent-browser-skills",
+    "title": "RoboRev + Agent Browser",
+    "section": "Agent Browser Skills",
+    "text": "Agent Browser Skills\n\n Available skills\n\n\n\ncoreCore browser automation: snapshots, forms, screenshots, data extraction, auth.\n\n\ndogfoodSystematic exploratory testing with bug discovery and UX analysis.\n\n\nelectronAutomate Electron apps: VS Code, Slack, Discord, Figma, etc.\n\n\nslackNavigate Slack, check unreads, search, send messages, extract data.\n\n\nvercel-sandboxRun agent-browser inside ephemeral Vercel Sandbox microVMs.\n\n\nagentcoreRun agent-browser on AWS Bedrock AgentCore cloud browsers.\n\n\n\n\n\nAfter installing, use agent-browser skills list to see all available skills, then agent-browser skills get &lt;name&gt; to load one into Claude Code."
+  },
+  {
     "objectID": "index.html#lab-3-todomvc-first-run",
     "href": "index.html#lab-3-todomvc-first-run",
     "title": "RoboRev + Agent Browser",
     "section": "Lab 3: TodoMVC First Run",
     "text": "Lab 3: TodoMVC First Run\n\n\nGoal\n\nUse Agent Browser to add a todo, verify it appears, and close the browser cleanly.\n\n\n\nagent-browser open https://demo.playwright.dev/todomvc/\nagent-browser snapshot -i\n\n# Find the textbox ref, for example @e1.\nagent-browser click @e1\nagent-browser type \"Buy milk\"\nagent-browser press Enter\nagent-browser snapshot -i\nagent-browser close\n\n\nPrompt to your coding agent:\nUse Agent Browser to add a todo named “Buy milk” at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot."
+  },
+  {
+    "objectID": "index.html#prompting-claude-code-for-browser-tasks",
+    "href": "index.html#prompting-claude-code-for-browser-tasks",
+    "title": "RoboRev + Agent Browser",
+    "section": "Prompting Claude Code For Browser Tasks",
+    "text": "Prompting Claude Code For Browser Tasks\n\n Example prompts\n\n\n\n\nSimple exploration\n\n“Use agent-browser to open https://example.com, take a snapshot, and describe what you see. List the clickable elements by their refs.”\nClaude Code runs commands and reads the snapshot output.\n\n\n\nForm interaction\n\n“Use agent-browser to navigate to https://example.com/form, find the email field, type test@example.com, click submit, and show a screenshot.”\nClaude Code chains commands and maps human language to refs.\n\n\n\nWith the skill\n\nAfter installing the skill, Claude Code knows to suggest agent-browser skills get core for detailed workflows.\n“I need to systematically test my app. What should I use?”\nClaude Code will recommend the dogfood or core skill.\n\n\n\nDebugging\n\n“Something broke on the login page. Use agent-browser to open [url], take a screenshot, and describe what you see.”\nClaude Code provides visual + accessibility tree context."
   },
   {
     "objectID": "index.html#essential-commands",

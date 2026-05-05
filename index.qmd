@@ -342,6 +342,55 @@ Keep suggestions actionable and scoped to the commit.
 | Review is stuck | Did the daemon or job fail? | `roborev log <job_id>` |
 | Queue is noisy | Are low severity findings useful? | `roborev fix --min-severity medium` |
 
+## Configure RoboRev For Claude Code
+
+<div class="kicker"><i class="fa-solid fa-gear"></i> Agent integration</div>
+
+:::: {.grid-2}
+::: {.grid-cell}
+```toml
+# ~/.roborev/config.toml
+# Default agent when no workflow-specific agent is set.
+default_agent = 'claude-code'
+default_model = 'claude-sonnet-4-6'
+default_backup_agent = ''
+default_backup_model = ''
+
+review_reasoning = 'thorough'
+refine_reasoning = 'standard'
+fix_reasoning = 'standard'
+review_agent = 'claude-code'
+review_model = 'claude-sonnet-4-6'
+```
+:::
+
+::: {.grid-cell}
+```bash
+# Verify configuration
+roborev config list --global --show-origin
+
+# Check agent is healthy
+roborev check-agents --agent claude-code
+
+# Use claude-code by default
+export ROBOREV_AGENT=claude-code
+```
+
+**Model mapping:**
+- **Balanced**: Sonnet 4.6 for daily work
+- **Fast**: Haiku 4.5 for quick lanes
+- **Thorough**: Opus 4.6 for deep dives
+- **Security**: Opus 4.7 for risky code
+- **Design**: Opus 4.7 for architecture
+:::
+::::
+
+## RoboRev In Action
+
+<div class="kicker"><i class="fa-solid fa-chart-simple"></i> Example review</div>
+
+![RoboRev code review example showing a detailed review with multiple findings, file snippets, and actionable feedback.](assets/roborev_review.png)
+
 ## Section 2: Agent Browser {.section-slide .browser-section}
 
 <div class="kicker"><i class="fa-solid fa-window-maximize"></i> Section 2</div>
@@ -434,6 +483,55 @@ agent-browser close
 :::
 ::::
 
+## Using Agent Browser In Claude Code
+
+<div class="kicker"><i class="fa-solid fa-code"></i> Two ways to use it</div>
+
+:::: {.grid-2}
+::: {.grid-cell}
+**Option 1: Install the skill (recommended)**
+
+```bash
+# One-time setup
+npx skills add vercel-labs/agent-browser
+
+# Claude Code now has built-in agent-browser guidance
+```
+
+This installs a discovery skill that teaches Claude Code about agent-browser. The skill content auto-updates with your CLI version.
+:::
+
+::: {.grid-cell}
+**Option 2: Use the CLI directly**
+
+```bash
+# In Claude Code terminal
+agent-browser open https://example.com
+agent-browser snapshot -i
+agent-browser click @e1
+agent-browser screenshot result.png
+agent-browser close
+```
+
+Claude Code returns output directly into the conversation. Works without the skill.
+:::
+::::
+
+## Agent Browser Skills
+
+<div class="kicker"><i class="fa-solid fa-folder"></i> Available skills</div>
+
+<div class="command-grid">
+<div class="command-card"><code>core</code><span>Core browser automation: snapshots, forms, screenshots, data extraction, auth.</span></div>
+<div class="command-card"><code>dogfood</code><span>Systematic exploratory testing with bug discovery and UX analysis.</span></div>
+<div class="command-card"><code>electron</code><span>Automate Electron apps: VS Code, Slack, Discord, Figma, etc.</span></div>
+<div class="command-card"><code>slack</code><span>Navigate Slack, check unreads, search, send messages, extract data.</span></div>
+<div class="command-card"><code>vercel-sandbox</code><span>Run agent-browser inside ephemeral Vercel Sandbox microVMs.</span></div>
+<div class="command-card"><code>agentcore</code><span>Run agent-browser on AWS Bedrock AgentCore cloud browsers.</span></div>
+</div>
+
+<div class="callout-strip"><i class="fa-solid fa-terminal"></i><p>After installing, use `agent-browser skills list` to see all available skills, then `agent-browser skills get <name>` to load one into Claude Code.</p></div>
+
 ## Lab 3: TodoMVC First Run
 
 ::: {.lab-card}
@@ -461,6 +559,46 @@ agent-browser close
 Prompt to your coding agent:
 
 Use Agent Browser to add a todo named "Buy milk" at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot.
+:::
+::::
+
+## Prompting Claude Code For Browser Tasks
+
+<div class="kicker"><i class="fa-solid fa-message"></i> Example prompts</div>
+
+:::: {.grid-2}
+::: {.card}
+<h3>Simple exploration</h3>
+
+"Use agent-browser to open https://example.com, take a snapshot, and describe what you see. List the clickable elements by their refs."
+
+Claude Code runs commands and reads the snapshot output.
+:::
+
+::: {.card}
+<h3>Form interaction</h3>
+
+"Use agent-browser to navigate to https://example.com/form, find the email field, type test@example.com, click submit, and show a screenshot."
+
+Claude Code chains commands and maps human language to refs.
+:::
+
+::: {.card}
+<h3>With the skill</h3>
+
+After installing the skill, Claude Code knows to suggest `agent-browser skills get core` for detailed workflows.
+
+"I need to systematically test my app. What should I use?"
+
+Claude Code will recommend the `dogfood` or `core` skill.
+:::
+
+::: {.card}
+<h3>Debugging</h3>
+
+"Something broke on the login page. Use agent-browser to open [url], take a screenshot, and describe what you see."
+
+Claude Code provides visual + accessibility tree context.
 :::
 ::::
 
