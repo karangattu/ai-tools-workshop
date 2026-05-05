@@ -107,6 +107,12 @@ Immediate review gives the agent a chance to fix the exact thing it just changed
 :::
 ::::
 
+## The Review Café
+
+<div class="kicker"><i class="fa-solid fa-image"></i> Visual guide</div>
+
+![A visual guide showing the RoboRev workflow: agents making changes, commits triggering reviews, findings queuing up, and fixes flowing back—all organized like a café workflow.](assets/roborev_cafe_poster.png)
+
 ## RoboRev Mental Model
 
 <div class="flow-row">
