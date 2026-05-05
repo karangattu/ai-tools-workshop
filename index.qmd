@@ -38,7 +38,7 @@ Decide when to review code, when to automate the browser, and when to turn findi
 ::::
 
 ::: {.hero-line}
-The goal is not more tooling. The goal is a tight agent workflow: commit small, review fast, inspect the browser, fix with context intact.
+The goal is a tight agent workflow: commit small, review fast, inspect the browser.
 :::
 
 ## The Combined Development Loop
@@ -53,7 +53,7 @@ The goal is not more tooling. The goal is a tight agent workflow: commit small, 
 <div class="flow-step"><i class="fa-solid fa-rotate-right"></i><strong>Fix and repeat</strong><span>Keep context, tests, and commits aligned.</span></div>
 </div>
 
-<div class="badge-row"><span class="badge roborev">RoboRev = code review memory</span><span class="badge browser">Agent Browser = page interaction memory</span><span class="badge">Small commits make both better</span></div>
+<div class="badge-row"><span class="badge roborev">RoboRev = code review</span><span class="badge browser">Agent Browser = page interaction</span><span class="badge">Small commits make both better</span></div>
 
 ## Section 1: RoboRev {.section-slide .roborev-section}
 
