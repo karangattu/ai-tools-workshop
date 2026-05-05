@@ -3,6 +3,8 @@ title: "RoboRev + Agent Browser"
 subtitle: "A hands-on workshop for faster, safer agentic development"
 author: "QALL meeting"
 date: "May 5, 2026"
+title-slide-attributes:
+  class: title-slide
 ---
 
 ## What You Will Leave With
