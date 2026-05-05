@@ -3,8 +3,6 @@ title: "RoboRev + Agent Browser"
 subtitle: "A hands-on workshop for faster, safer agentic development"
 author: "QALL meeting"
 date: "May 5, 2026"
-title-slide-attributes:
-  class: title-slide
 ---
 
 ## What You Will Leave With
@@ -40,23 +38,6 @@ Decide when to review code, when to automate the browser, and when to turn findi
 ::: {.hero-line}
 The goal is not more tooling. The goal is a tight agent workflow: commit small, review fast, inspect the browser, fix with context intact.
 :::
-
-::: {.notes}
-Set expectations: this is a hands-on workshop. Participants should have a terminal, a git repo, and an AI coding agent available.
-:::
-
-## Run Of Show
-
-<div class="kicker"><i class="fa-solid fa-clock"></i> 90 minute workshop</div>
-
-<div class="timeline">
-<div class="timeline-row roborev"><strong>0-10 min</strong><p>Frame the agent workflow and install prerequisites.</p></div>
-<div class="timeline-row roborev"><strong>10-45 min</strong><p>Section 1: RoboRev setup, review queue, fix paths, and daily usage.</p></div>
-<div class="timeline-row"><strong>45-80 min</strong><p>Section 2: Agent Browser setup, refs, command patterns, and browser labs.</p></div>
-<div class="timeline-row"><strong>80-90 min</strong><p>Capstone: combine both tools and prepare the deck for GitHub Pages.</p></div>
-</div>
-
-<div class="callout-strip"><i class="fa-solid fa-person-chalkboard"></i><p>Facilitator move: keep labs small. The value appears when participants repeat the loop several times, not when a single exercise becomes elaborate.</p></div>
 
 ## The Combined Development Loop
 
@@ -144,6 +125,9 @@ Immediate review gives the agent a chance to fix the exact thing it just changed
 # macOS / Linux
 curl -fsSL https://roborev.io/install.sh | bash
 
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://roborev.io/install.ps1 | iex"
+
 # Inside the repository you want reviewed
 cd your-repo
 roborev init
@@ -159,7 +143,6 @@ roborev status
 - Installs a git post-commit hook.
 - Starts the background daemon.
 - Registers the repo for review jobs.
-- Keeps hooks compatible with hook managers such as Husky.
 :::
 ::::
 
@@ -188,13 +171,10 @@ roborev tui
 ::: {.prompt-box}
 Prompt to your coding agent:
 
-Create a small validation helper and a focused unit test. Keep the change intentionally small so RoboRev can review one idea at a time.
+Create a small validation helper and a focused unit test for a certain feature. (Keep the change intentionally small so RoboRev can review one idea at a time.)
 :::
 ::::
 
-::: {.notes}
-If participants do not have a suitable repo, have them create a tiny scratch repo with a single function and test. The point is the review loop, not the app domain.
-:::
 
 ## Reading The Queue
 
@@ -225,7 +205,11 @@ Press `y` in the TUI, paste the review into your coding agent, and ask for a foc
 
 ### Agent Skill
 
-Run `roborev skills install`, then use `/roborev-fix` in Claude Code or `$roborev-fix` in Codex.
+Run `roborev skills install`, then use `/roborev-review [commit]` to request a code review for a commit and `/roborev-fix` to fix all review findings in Claude Code.
+:::
+
+::: {.notes}
+The recommended roborev workflow is async reviews + TUI, not synchronous reviews in the agent.
 :::
 
 ::: {.tool-card}
@@ -249,7 +233,6 @@ Run `roborev fix` for open reviews, or `roborev refine` for an iterative review 
 5. Close the review with `roborev close <job_id>` or from the TUI.
 :::
 
-<div class="callout-strip"><i class="fa-solid fa-bullseye"></i><p>Workshop checkpoint: participants should be able to explain where a review lives, how to inspect it, and how to resolve it without losing the original coding context.</p></div>
 
 ## Daily RoboRev Pattern
 
@@ -281,22 +264,6 @@ roborev refine --max-iterations 5
 ```
 :::
 
-::: {.grid-cell}
-```bash
-# Review modes
-roborev review
-roborev review --dirty
-roborev review --since HEAD~5
-roborev review --branch
-roborev review --type security
-
-# Diagnostics
-roborev log <job_id>
-roborev check-agents
-roborev summary --since 7d
-roborev insights --since 30d
-```
-:::
 ::::
 
 ## Config That Matters
@@ -326,21 +293,15 @@ Keep suggestions actionable and scoped to the commit.
 <h3>Good defaults for teams</h3>
 
 - Commit small enough that a review has one main theme.
-- Add local review guidelines for recurring project risks.
+- Add local `review guidelines` (*.roborev.toml*) for recurring project risks.
 - Use `--min-severity` when auto-fixing noisy queues.
 - Use `roborev compact` when many open findings need consolidation.
 :::
 ::::
 
-## RoboRev Troubleshooting Drill
+## RoboRev Delete
 
-| Symptom | First check | Useful command |
-|---|---|---|
-| Reviews are not appearing | Did a commit happen after init? | `roborev status` |
-| Hook looks wrong | Is `.git/hooks/post-commit` present? | `roborev install-hook --force` |
-| Agent is unavailable | Are agent CLIs and API keys configured? | `roborev check-agents` |
-| Review is stuck | Did the daemon or job fail? | `roborev log <job_id>` |
-| Queue is noisy | Are low severity findings useful? | `roborev fix --min-severity medium` |
+When you no longer need async reviews, run `roborev repo delete [reponame] --cascade` to remove the post-commit hook and stop the daemon
 
 ## Configure RoboRev For Claude Code
 
@@ -349,7 +310,7 @@ Keep suggestions actionable and scoped to the commit.
 :::: {.grid-2}
 ::: {.grid-cell}
 ```toml
-# ~/.roborev/config.toml
+# ~/.roborev/config.toml -> Global defaults for all repos
 # Default agent when no workflow-specific agent is set.
 default_agent = 'claude-code'
 default_model = 'claude-sonnet-4-6'
@@ -366,12 +327,6 @@ review_model = 'claude-sonnet-4-6'
 
 ::: {.grid-cell}
 ```bash
-# Verify configuration
-roborev config list --global --show-origin
-
-# Check agent is healthy
-roborev check-agents --agent claude-code
-
 # Use claude-code by default
 export ROBOREV_AGENT=claude-code
 ```
