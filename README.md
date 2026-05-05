@@ -1,2 +1,15 @@
-# ai-tools-workshop
-A workshop to show participants the different AI tools they can use as part of their software development lifecycle
+# AI Tools Workshop
+
+## Render Locally
+
+Install Quarto, then run:
+
+```bash
+quarto preview
+```
+
+To render the static site into `docs/`:
+
+```bash
+quarto render
+```
