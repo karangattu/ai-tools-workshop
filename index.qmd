@@ -154,7 +154,7 @@ roborev status
 :::
 ::::
 
-## Lab 1: First Review Loop
+## Act 1: First Review Loop
 
 ::: {.lab-card .roborev}
 <h3>Goal</h3>
@@ -176,11 +176,6 @@ roborev tui
 ```
 :::
 
-::: {.prompt-box}
-Prompt to your coding agent:
-
-Create a small validation helper and a focused unit test for a certain feature. (Keep the change intentionally small so RoboRev can review one idea at a time.)
-:::
 ::::
 
 
@@ -229,7 +224,7 @@ Run `roborev fix` for open reviews, or `roborev refine` for an iterative review 
 :::
 ::::
 
-## Lab 2: Close The Loop
+## Act 2: Close The Loop
 
 ::: {.lab-card .roborev}
 <h3>Workflow</h3>
@@ -339,12 +334,13 @@ review_model = 'claude-sonnet-4-6'
 export ROBOREV_AGENT=claude-code
 ```
 
-**Model mapping:**
-- **Balanced**: Sonnet 4.6 for daily work
-- **Fast**: Haiku 4.5 for quick lanes
-- **Thorough**: Opus 4.6 for deep dives
-- **Security**: Opus 4.7 for risky code
-- **Design**: Opus 4.7 for architecture
+| Task | Model |
+|------|-------|
+| **Balanced** | Sonnet 4.6 for daily work |
+| **Fast** | Haiku 4.5 for quick lanes |
+| **Thorough** | Opus 4.6 for deep dives |
+| **Security** | Opus 4.7 for risky code |
+| **Design** | Opus 4.7 for architecture |
 :::
 ::::
 

@@ -243,7 +243,7 @@ QALL meeting
 </div>
 </div>
 <div class="hero-line">
-<p>The goal is not more tooling. The goal is a tight agent workflow: commit small, review fast, inspect the browser, fix with context intact.</p>
+<p>The goal is a tight agent workflow: commit small, review fast, inspect the browser.</p>
 </div>
 </section>
 <section id="the-combined-development-loop" class="slide level2">
@@ -269,7 +269,7 @@ QALL meeting
 </div>
 </div>
 <div class="badge-row">
-<span class="badge roborev">RoboRev = code review memory</span><span class="badge browser">Agent Browser = page interaction memory</span><span class="badge">Small commits make both better</span>
+<span class="badge roborev">RoboRev = code review</span><span class="badge browser">Agent Browser = page interaction</span><span class="badge">Small commits make both better</span>
 </div>
 </section>
 <section id="section-1-roborev" class="slide level2 section-slide roborev-section">
@@ -388,8 +388,8 @@ What <code>roborev init</code> does
 </div>
 </div>
 </section>
-<section id="lab-1-first-review-loop" class="slide level2">
-<h2>Lab 1: First Review Loop</h2>
+<section id="act-1-first-review-loop" class="slide level2">
+<h2>Act 1: First Review Loop</h2>
 <div class="lab-card roborev">
 <h3>
 Goal
@@ -406,10 +406,6 @@ Goal
 <span id="cb2-6"><a></a></span>
 <span id="cb2-7"><a></a><span class="ex">roborev</span> status</span>
 <span id="cb2-8"><a></a><span class="ex">roborev</span> tui</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="prompt-box">
-<p>Prompt to your coding agent:</p>
-<p>Create a small validation helper and a focused unit test for a certain feature. (Keep the change intentionally small so RoboRev can review one idea at a time.)</p>
 </div>
 </div>
 </section>
@@ -481,8 +477,8 @@ In the TUI, use arrow keys or <code>j</code> and <code>k</code> to move, <code>E
 </div>
 </div>
 </section>
-<section id="lab-2-close-the-loop" class="slide level2">
-<h2>Lab 2: Close The Loop</h2>
+<section id="act-2-close-the-loop" class="slide level2">
+<h2>Act 2: Close The Loop</h2>
 <div class="lab-card roborev">
 <h3>
 Workflow
@@ -610,7 +606,36 @@ Good defaults for teams
 <div class="grid-cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="co"># Use claude-code by default</span></span>
 <span id="cb7-2"><a></a><span class="bu">export</span> <span class="va">ROBOREV_AGENT</span><span class="op">=</span>claude-code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Model mapping:</strong> - <strong>Balanced</strong>: Sonnet 4.6 for daily work - <strong>Fast</strong>: Haiku 4.5 for quick lanes - <strong>Thorough</strong>: Opus 4.6 for deep dives - <strong>Security</strong>: Opus 4.7 for risky code - <strong>Design</strong>: Opus 4.7 for architecture</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Balanced</strong></td>
+<td>Sonnet 4.6 for daily work</td>
+</tr>
+<tr class="even">
+<td><strong>Fast</strong></td>
+<td>Haiku 4.5 for quick lanes</td>
+</tr>
+<tr class="odd">
+<td><strong>Thorough</strong></td>
+<td>Opus 4.6 for deep dives</td>
+</tr>
+<tr class="even">
+<td><strong>Security</strong></td>
+<td>Opus 4.7 for risky code</td>
+</tr>
+<tr class="odd">
+<td><strong>Design</strong></td>
+<td>Opus 4.7 for architecture</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>

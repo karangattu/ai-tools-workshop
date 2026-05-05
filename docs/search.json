@@ -4,14 +4,14 @@
     "href": "index.html#what-you-will-leave-with",
     "title": "RoboRev + Agent Browser",
     "section": "What You Will Leave With",
-    "text": "What You Will Leave With\n\n Workshop outcome\n\n\n\n\n\n\nReview Loop\nUse RoboRev to catch agent-written code issues while the work is still fresh.\n\n\n\n\n\nBrowser Loop\nUse Agent Browser to navigate, inspect, click, type, and verify through compact refs.\n\n\n\n\n\nCombined Loop\nDecide when to review code, when to automate the browser, and when to turn findings into durable tests.\n\n\n\nThe goal is not more tooling. The goal is a tight agent workflow: commit small, review fast, inspect the browser, fix with context intact."
+    "text": "What You Will Leave With\n\n Workshop outcome\n\n\n\n\n\n\nReview Loop\nUse RoboRev to catch agent-written code issues while the work is still fresh.\n\n\n\n\n\nBrowser Loop\nUse Agent Browser to navigate, inspect, click, type, and verify through compact refs.\n\n\n\n\n\nCombined Loop\nDecide when to review code, when to automate the browser, and when to turn findings into durable tests.\n\n\n\nThe goal is a tight agent workflow: commit small, review fast, inspect the browser."
   },
   {
     "objectID": "index.html#the-combined-development-loop",
     "href": "index.html#the-combined-development-loop",
     "title": "RoboRev + Agent Browser",
     "section": "The Combined Development Loop",
-    "text": "The Combined Development Loop\n\n How the pieces fit\n\n\n\nAsk the agentImplement a small feature or fix.\n\n\nCommit smallRoboRev hook queues a review.\n\n\nScan findingsTUI, CLI, or agent skill.\n\n\nVerify in browserAgent Browser snapshots the app.\n\n\nFix and repeatKeep context, tests, and commits aligned.\n\n\n\nRoboRev = code review memoryAgent Browser = page interaction memorySmall commits make both better"
+    "text": "The Combined Development Loop\n\n How the pieces fit\n\n\n\nAsk the agentImplement a small feature or fix.\n\n\nCommit smallRoboRev hook queues a review.\n\n\nScan findingsTUI, CLI, or agent skill.\n\n\nVerify in browserAgent Browser snapshots the app.\n\n\nFix and repeatKeep context, tests, and commits aligned.\n\n\n\nRoboRev = code reviewAgent Browser = page interactionSmall commits make both better"
   },
   {
     "objectID": "index.html#section-1-roborev",
@@ -56,11 +56,11 @@
     "text": "Install And Initialize\n\n\n# macOS / Linux\ncurl -fsSL https://roborev.io/install.sh | bash\n\n# Windows (PowerShell)\npowershell -ExecutionPolicy ByPass -c \"irm https://roborev.io/install.ps1 | iex\"\n\n# Inside the repository you want reviewed\ncd your-repo\nroborev init\n\n# Confirm the daemon and queue are healthy\nroborev status\n\n\n\nWhat roborev init does\n\n\nInstalls a git post-commit hook.\nStarts the background daemon.\nRegisters the repo for review jobs."
   },
   {
-    "objectID": "index.html#lab-1-first-review-loop",
-    "href": "index.html#lab-1-first-review-loop",
+    "objectID": "index.html#act-1-first-review-loop",
+    "href": "index.html#act-1-first-review-loop",
     "title": "RoboRev + Agent Browser",
-    "section": "Lab 1: First Review Loop",
-    "text": "Lab 1: First Review Loop\n\n\nGoal\n\nCreate one small agent-authored change, commit it, and find the RoboRev review.\n\n\n\nroborev init\n\n# Ask your coding agent for a tiny change.\ngit add .\ngit commit -m \"add small validation change\"\n\nroborev status\nroborev tui\n\n\nPrompt to your coding agent:\nCreate a small validation helper and a focused unit test for a certain feature. (Keep the change intentionally small so RoboRev can review one idea at a time.)"
+    "section": "Act 1: First Review Loop",
+    "text": "Act 1: First Review Loop\n\n\nGoal\n\nCreate one small agent-authored change, commit it, and find the RoboRev review.\n\n\n\nroborev init\n\n# Ask your coding agent for a tiny change.\ngit add .\ngit commit -m \"add small validation change\"\n\nroborev status\nroborev tui"
   },
   {
     "objectID": "index.html#reading-the-queue",
@@ -77,11 +77,11 @@
     "text": "Three Fix Paths\n\n\n\n\n\nCopy To Agent\nPress y in the TUI, paste the review into your coding agent, and ask for a focused fix.\n\n\n\n\n\nAgent Skill\nRun roborev skills install, then use /roborev-review [commit] to request a code review for a commit and /roborev-fix to fix all review findings in Claude Code.\n\n\nThe recommended roborev workflow is async reviews + TUI, not synchronous reviews in the agent.\n\n\n\n\n\nCLI Fix\nRun roborev fix for open reviews, or roborev refine for an iterative review and fix loop."
   },
   {
-    "objectID": "index.html#lab-2-close-the-loop",
-    "href": "index.html#lab-2-close-the-loop",
+    "objectID": "index.html#act-2-close-the-loop",
+    "href": "index.html#act-2-close-the-loop",
     "title": "RoboRev + Agent Browser",
-    "section": "Lab 2: Close The Loop",
-    "text": "Lab 2: Close The Loop\n\n\nWorkflow\n\n\nOpen roborev tui and choose one finding.\nUse one fix path: copy to agent, /roborev-fix, or roborev fix &lt;job_id&gt;.\nRun the relevant tests or checks.\nCommit the fix.\nClose the review with roborev close &lt;job_id&gt; or from the TUI."
+    "section": "Act 2: Close The Loop",
+    "text": "Act 2: Close The Loop\n\n\nWorkflow\n\n\nOpen roborev tui and choose one finding.\nUse one fix path: copy to agent, /roborev-fix, or roborev fix &lt;job_id&gt;.\nRun the relevant tests or checks.\nCommit the fix.\nClose the review with roborev close &lt;job_id&gt; or from the TUI."
   },
   {
     "objectID": "index.html#daily-roborev-pattern",
@@ -116,7 +116,7 @@
     "href": "index.html#configure-roborev-for-claude-code",
     "title": "RoboRev + Agent Browser",
     "section": "Configure RoboRev For Claude Code",
-    "text": "Configure RoboRev For Claude Code\n\n Agent integration\n\n\n\n# ~/.roborev/config.toml -&gt; Global defaults for all repos\n# Default agent when no workflow-specific agent is set.\ndefault_agent = 'claude-code'\ndefault_model = 'claude-sonnet-4-6'\ndefault_backup_agent = ''\ndefault_backup_model = ''\n\nreview_reasoning = 'thorough'\nrefine_reasoning = 'standard'\nfix_reasoning = 'standard'\nreview_agent = 'claude-code'\nreview_model = 'claude-sonnet-4-6'\n\n\n# Use claude-code by default\nexport ROBOREV_AGENT=claude-code\nModel mapping: - Balanced: Sonnet 4.6 for daily work - Fast: Haiku 4.5 for quick lanes - Thorough: Opus 4.6 for deep dives - Security: Opus 4.7 for risky code - Design: Opus 4.7 for architecture"
+    "text": "Configure RoboRev For Claude Code\n\n Agent integration\n\n\n\n# ~/.roborev/config.toml -&gt; Global defaults for all repos\n# Default agent when no workflow-specific agent is set.\ndefault_agent = 'claude-code'\ndefault_model = 'claude-sonnet-4-6'\ndefault_backup_agent = ''\ndefault_backup_model = ''\n\nreview_reasoning = 'thorough'\nrefine_reasoning = 'standard'\nfix_reasoning = 'standard'\nreview_agent = 'claude-code'\nreview_model = 'claude-sonnet-4-6'\n\n\n# Use claude-code by default\nexport ROBOREV_AGENT=claude-code\n\n\n\nTask\nModel\n\n\n\n\nBalanced\nSonnet 4.6 for daily work\n\n\nFast\nHaiku 4.5 for quick lanes\n\n\nThorough\nOpus 4.6 for deep dives\n\n\nSecurity\nOpus 4.7 for risky code\n\n\nDesign\nOpus 4.7 for architecture"
   },
   {
     "objectID": "index.html#roborev-in-action",
