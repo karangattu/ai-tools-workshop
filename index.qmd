@@ -1,5 +1,5 @@
 ---
-title: "RoboRev + Agent Browser"
+title: "Roborev + Agent Browser"
 subtitle: "A hands-on workshop for faster, safer agentic development"
 author: "QALL meeting"
 date: "May 5, 2026"
@@ -17,7 +17,7 @@ title-slide-attributes:
 
 ### Review Loop
 
-Use RoboRev to catch agent-written code issues while the work is still fresh.
+Use Roborev to catch agent-written code issues while the work is still fresh.
 :::
 
 ::: {.tool-card}
@@ -43,27 +43,27 @@ Decide when to review code, when to automate the browser, and when to turn findi
 
 <div class="flow-row">
 <div class="flow-step roborev"><i class="fa-solid fa-wand-magic-sparkles"></i><strong>Ask the agent</strong><span>Implement a small feature or fix.</span></div>
-<div class="flow-step roborev"><i class="fa-solid fa-code-commit"></i><strong>Commit small</strong><span>RoboRev hook queues a review.</span></div>
+<div class="flow-step roborev"><i class="fa-solid fa-code-commit"></i><strong>Commit small</strong><span>Roborev hook queues a review.</span></div>
 <div class="flow-step roborev"><i class="fa-solid fa-list-check"></i><strong>Scan findings</strong><span>TUI, CLI, or agent skill.</span></div>
 <div class="flow-step"><i class="fa-solid fa-window-maximize"></i><strong>Verify in browser</strong><span>Agent Browser snapshots the app.</span></div>
 <div class="flow-step"><i class="fa-solid fa-rotate-right"></i><strong>Fix and repeat</strong><span>Keep context, tests, and commits aligned.</span></div>
 </div>
 
-<div class="badge-row"><span class="badge roborev">RoboRev = code review</span><span class="badge browser">Agent Browser = page interaction</span><span class="badge">Small commits make both better</span></div>
+<div class="badge-row"><span class="badge roborev">Roborev = code review</span><span class="badge browser">Agent Browser = page interaction</span><span class="badge">Small commits make both better</span></div>
 
-## Section 1: RoboRev {.section-slide .roborev-section}
+## Section 1: Roborev {.section-slide .roborev-section}
 
 <div class="kicker"><i class="fa-solid fa-code-commit"></i> Section 1</div>
 
-RoboRev keeps agent-generated code reviewable after every commit, without forcing you to stop your flow.
+Roborev keeps agent-generated code reviewable after every commit, without forcing you to stop your flow.
 
-## RoboRev In One Sentence
+## Roborev In One Sentence
 
 <div class="kicker"><i class="fa-solid fa-message"></i> Core idea</div>
 
 :::: {.grid-2}
 ::: {.hero-line}
-RoboRev is a persistent review queue for agent-written code. It reviews commits in the background and keeps findings open until you address or close them.
+Roborev is a persistent review queue for agent-written code. It reviews commits in the background and keeps findings open until you address or close them.
 :::
 
 ::: {.card}
@@ -107,9 +107,9 @@ Immediate review gives the agent a chance to fix the exact thing it just changed
 
 <div class="kicker"><i class="fa-solid fa-image"></i> Visual guide</div>
 
-![A visual guide showing the RoboRev workflow: agents making changes, commits triggering reviews, findings queuing up, and fixes flowing back—all organized like a café workflow.](assets/roborev_cafe_poster.png)
+![A visual guide showing the Roborev workflow: agents making changes, commits triggering reviews, findings queuing up, and fixes flowing back—all organized like a café workflow.](assets/roborev_cafe_poster.png)
 
-## RoboRev Mental Model
+## Roborev Mental Model
 
 <div class="flow-row">
 <div class="flow-step roborev"><i class="fa-solid fa-code"></i><strong>Change</strong><span>Your agent edits the repo.</span></div>
@@ -119,7 +119,7 @@ Immediate review gives the agent a chance to fix the exact thing it just changed
 <div class="flow-step roborev"><i class="fa-solid fa-screwdriver-wrench"></i><strong>Fix</strong><span>Copy, skill, CLI, or refine loop.</span></div>
 </div>
 
-<div class="callout-strip"><i class="fa-solid fa-circle-info"></i><p>RoboRev is not a merge gate by default. Treat it as a review memory that follows your local commits.</p></div>
+<div class="callout-strip"><i class="fa-solid fa-circle-info"></i><p>Roborev is not a merge gate by default. Treat it as a review memory that follows your local commits.</p></div>
 
 ## Install And Initialize
 
@@ -155,7 +155,7 @@ roborev status
 ::: {.lab-card .roborev}
 <h3>Goal</h3>
 
-Create one small agent-authored change, commit it, and find the RoboRev review.
+Create one small agent-authored change, commit it, and find the Roborev review.
 :::
 
 :::: {.grid-2}
@@ -233,7 +233,7 @@ Run `roborev fix` for open reviews, or `roborev refine` for an iterative review 
 :::
 
 
-## Daily RoboRev Pattern
+## Daily Roborev Pattern
 
 <div class="grid-4">
 <div class="card"><div class="big-number roborev">1</div><p>Ask the agent for one contained change.</p></div>
@@ -242,7 +242,7 @@ Run `roborev fix` for open reviews, or `roborev refine` for an iterative review 
 <div class="card"><div class="big-number roborev">4</div><p>Feed findings back into the agent while context is still warm.</p></div>
 </div>
 
-## RoboRev Command Sheet
+## Roborev Command Sheet
 
 :::: {.grid-2}
 ::: {.grid-cell}
@@ -298,11 +298,11 @@ Keep suggestions actionable and scoped to the commit.
 :::
 ::::
 
-## RoboRev Delete
+## Roborev Delete
 
 When you no longer need async reviews, run `roborev repo delete [reponame] --cascade` to remove the post-commit hook and stop the daemon
 
-## Configure RoboRev For Claude Code
+## Configure Roborev For Claude Code
 
 <div class="kicker"><i class="fa-solid fa-gear"></i> Agent integration</div>
 
@@ -340,11 +340,11 @@ export ROBOREV_AGENT=claude-code
 :::
 ::::
 
-## RoboRev In Action
+## Roborev In Action
 
 <div class="kicker"><i class="fa-solid fa-chart-simple"></i> Example review</div>
 
-![RoboRev code review example showing a detailed review with multiple findings, file snippets, and actionable feedback.](assets/roborev_review.png)
+![Roborev code review example showing a detailed review with multiple findings, file snippets, and actionable feedback.](assets/roborev_review.png)
 
 ## Section 2: Agent Browser {.section-slide .browser-section}
 
@@ -690,7 +690,7 @@ agent-browser close
 
 1. Ask the agent to add or adjust one UI behavior.
 2. Commit the change.
-3. Open RoboRev and inspect the queued review.
+3. Open Roborev and inspect the queued review.
 :::
 
 ::: {.lab-card}
@@ -698,7 +698,7 @@ agent-browser close
 
 1. Use Agent Browser to exercise the changed UI.
 2. Save a screenshot or snapshot evidence.
-3. Feed both RoboRev findings and browser evidence back into the agent.
+3. Feed both Roborev findings and browser evidence back into the agent.
 :::
 ::::
 
@@ -706,7 +706,7 @@ agent-browser close
 
 :::: {.grid-2}
 ::: {.card}
-<h3>RoboRev</h3>
+<h3>Roborev</h3>
 
 - [Quick Start](https://www.roborev.io/quickstart/)
 - [CLI Commands](https://www.roborev.io/commands/)

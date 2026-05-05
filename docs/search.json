@@ -2,260 +2,260 @@
   {
     "objectID": "index.html#what-you-will-leave-with",
     "href": "index.html#what-you-will-leave-with",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "What You Will Leave With",
-    "text": "What You Will Leave With\n\n Workshop outcome\n\n\n\n\n\n\nReview Loop\nUse RoboRev to catch agent-written code issues while the work is still fresh.\n\n\n\n\n\nBrowser Loop\nUse Agent Browser to navigate, inspect, click, type, and verify through compact refs.\n\n\n\n\n\nCombined Loop\nDecide when to review code, when to automate the browser, and when to turn findings into durable tests."
+    "text": "What You Will Leave With\n\n Workshop outcome\n\n\n\n\n\n\nReview Loop\nUse Roborev to catch agent-written code issues while the work is still fresh.\n\n\n\n\n\nBrowser Loop\nUse Agent Browser to navigate, inspect, click, type, and verify through compact refs.\n\n\n\n\n\nCombined Loop\nDecide when to review code, when to automate the browser, and when to turn findings into durable tests."
   },
   {
     "objectID": "index.html#the-combined-development-loop",
     "href": "index.html#the-combined-development-loop",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "The Combined Development Loop",
-    "text": "The Combined Development Loop\n\n How the pieces fit\n\n\n\nAsk the agentImplement a small feature or fix.\n\n\nCommit smallRoboRev hook queues a review.\n\n\nScan findingsTUI, CLI, or agent skill.\n\n\nVerify in browserAgent Browser snapshots the app.\n\n\nFix and repeatKeep context, tests, and commits aligned.\n\n\n\nRoboRev = code reviewAgent Browser = page interactionSmall commits make both better"
+    "text": "The Combined Development Loop\n\n How the pieces fit\n\n\n\nAsk the agentImplement a small feature or fix.\n\n\nCommit smallRoborev hook queues a review.\n\n\nScan findingsTUI, CLI, or agent skill.\n\n\nVerify in browserAgent Browser snapshots the app.\n\n\nFix and repeatKeep context, tests, and commits aligned.\n\n\n\nRoborev = code reviewAgent Browser = page interactionSmall commits make both better"
   },
   {
     "objectID": "index.html#section-1-roborev",
     "href": "index.html#section-1-roborev",
-    "title": "RoboRev + Agent Browser",
-    "section": "Section 1: RoboRev",
-    "text": "Section 1: RoboRev\n\n Section 1\n\nRoboRev keeps agent-generated code reviewable after every commit, without forcing you to stop your flow."
+    "title": "Roborev + Agent Browser",
+    "section": "Section 1: Roborev",
+    "text": "Section 1: Roborev\n\n Section 1\n\nRoborev keeps agent-generated code reviewable after every commit, without forcing you to stop your flow."
   },
   {
     "objectID": "index.html#roborev-in-one-sentence",
     "href": "index.html#roborev-in-one-sentence",
-    "title": "RoboRev + Agent Browser",
-    "section": "RoboRev In One Sentence",
-    "text": "RoboRev In One Sentence\n\n Core idea\n\n\n\nRoboRev is a persistent review queue for agent-written code. It reviews commits in the background and keeps findings open until you address or close them.\n\n\n\nUse it when\n\n\nYour coding agent is moving faster than your review bandwidth.\nYou want feedback while the agent still has task context.\nYou want a durable ledger of findings instead of a one-time chat note."
+    "title": "Roborev + Agent Browser",
+    "section": "Roborev In One Sentence",
+    "text": "Roborev In One Sentence\n\n Core idea\n\n\n\nRoborev is a persistent review queue for agent-written code. It reviews commits in the background and keeps findings open until you address or close them.\n\n\n\nUse it when\n\n\nYour coding agent is moving faster than your review bandwidth.\nYou want feedback while the agent still has task context.\nYou want a durable ledger of findings instead of a one-time chat note."
   },
   {
     "objectID": "index.html#why-reviews-need-a-queue",
     "href": "index.html#why-reviews-need-a-queue",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Why Reviews Need A Queue",
     "text": "Why Reviews Need A Queue\n\n\n\n\n\nAgents Move Fast\nBy the time you manually inspect code, the agent may already be solving the next problem.\n\n\n\n\n\nFindings Stack Up\nSmall issues become expensive when they hide inside a large final diff.\n\n\n\n\n\nContext Decays\nImmediate review gives the agent a chance to fix the exact thing it just changed."
   },
   {
     "objectID": "index.html#the-review-café",
     "href": "index.html#the-review-café",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "The Review Café",
-    "text": "The Review Café\n\n Visual guide\n\n\nA visual guide showing the RoboRev workflow: agents making changes, commits triggering reviews, findings queuing up, and fixes flowing back—all organized like a café workflow."
+    "text": "The Review Café\n\n Visual guide\n\n\nA visual guide showing the Roborev workflow: agents making changes, commits triggering reviews, findings queuing up, and fixes flowing back—all organized like a café workflow."
   },
   {
     "objectID": "index.html#roborev-mental-model",
     "href": "index.html#roborev-mental-model",
-    "title": "RoboRev + Agent Browser",
-    "section": "RoboRev Mental Model",
-    "text": "RoboRev Mental Model\n\n\nChangeYour agent edits the repo.\n\n\nCommitThe post-commit hook fires.\n\n\nDaemonReview jobs run in the background.\n\n\nQueueFindings stay open in the ledger.\n\n\nFixCopy, skill, CLI, or refine loop.\n\n\n\n\n\nRoboRev is not a merge gate by default. Treat it as a review memory that follows your local commits."
+    "title": "Roborev + Agent Browser",
+    "section": "Roborev Mental Model",
+    "text": "Roborev Mental Model\n\n\nChangeYour agent edits the repo.\n\n\nCommitThe post-commit hook fires.\n\n\nDaemonReview jobs run in the background.\n\n\nQueueFindings stay open in the ledger.\n\n\nFixCopy, skill, CLI, or refine loop.\n\n\n\n\n\nRoborev is not a merge gate by default. Treat it as a review memory that follows your local commits."
   },
   {
     "objectID": "index.html#install-and-initialize",
     "href": "index.html#install-and-initialize",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Install And Initialize",
     "text": "Install And Initialize\n\n\n# macOS / Linux\ncurl -fsSL https://roborev.io/install.sh | bash\n\n# Windows (PowerShell)\npowershell -ExecutionPolicy ByPass -c \"irm https://roborev.io/install.ps1 | iex\"\n\n# Inside the repository you want reviewed\ncd your-repo\nroborev init\n\n# Confirm the daemon and queue are healthy\nroborev status\n\n\n\nWhat roborev init does\n\n\nInstalls a git post-commit hook.\nStarts the background daemon.\nRegisters the repo for review jobs."
   },
   {
     "objectID": "index.html#act-1-first-review-loop",
     "href": "index.html#act-1-first-review-loop",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Act 1: First Review Loop",
-    "text": "Act 1: First Review Loop\n\n\nGoal\n\nCreate one small agent-authored change, commit it, and find the RoboRev review.\n\n\n\nroborev init\n\n# Ask your coding agent for a tiny change.\ngit add .\ngit commit -m \"add small validation change\"\n\nroborev status\nroborev tui"
+    "text": "Act 1: First Review Loop\n\n\nGoal\n\nCreate one small agent-authored change, commit it, and find the Roborev review.\n\n\n\nroborev init\n\n# Ask your coding agent for a tiny change.\ngit add .\ngit commit -m \"add small validation change\"\n\nroborev status\nroborev tui"
   },
   {
     "objectID": "index.html#reading-the-queue",
     "href": "index.html#reading-the-queue",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Reading The Queue",
     "text": "Reading The Queue\n\n\nroborev tuiOpen the interactive review browser.\n\n\nroborev list –openShow currently open reviews.\n\n\nroborev show &lt;job_id&gt;Read one review from the CLI.\n\n\nroborev log &lt;job_id&gt;Inspect the agent job log.\n\n\nroborev wait –sha HEADWait for an already queued review.\n\n\nroborev close &lt;job_id&gt;Mark a review as handled.\n\n\n\n\n\nIn the TUI, use arrow keys or j and k to move, a to close, Enter to open details, y to copy a completed review, and ? for shortcuts."
   },
   {
     "objectID": "index.html#three-fix-paths",
     "href": "index.html#three-fix-paths",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Three Fix Paths",
     "text": "Three Fix Paths\n\n\n\n\n\nCopy To Agent\nPress y in the TUI, paste the review into your coding agent, and ask for a focused fix.\n\n\n\n\n\nAgent Skill\nRun roborev skills install, then use /roborev-review [commit] to request a code review for a commit and /roborev-fix to fix all review findings in Claude Code.\n\n\nThe recommended roborev workflow is async reviews + TUI, not synchronous reviews in the agent.\n\n\n\n\n\nCLI Fix\nRun roborev fix for open reviews, or roborev refine for an iterative review and fix loop."
   },
   {
     "objectID": "index.html#act-2-close-the-loop",
     "href": "index.html#act-2-close-the-loop",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Act 2: Close The Loop",
     "text": "Act 2: Close The Loop\n\n\nWorkflow\n\n\nOpen roborev tui and choose one finding.\nUse one fix path: copy to agent, /roborev-fix, or roborev fix &lt;job_id&gt;.\nRun the relevant tests or checks.\nCommit the fix.\nClose the review with roborev close &lt;job_id&gt; or from the TUI."
   },
   {
     "objectID": "index.html#daily-roborev-pattern",
     "href": "index.html#daily-roborev-pattern",
-    "title": "RoboRev + Agent Browser",
-    "section": "Daily RoboRev Pattern",
-    "text": "Daily RoboRev Pattern\n\n\n\n1\n\n\nAsk the agent for one contained change.\n\n\n\n\n2\n\n\nCommit when the change reaches a reviewable state.\n\n\n\n\n3\n\n\nScan roborev tui every few commits or every 20 minutes.\n\n\n\n\n4\n\n\nFeed findings back into the agent while context is still warm."
+    "title": "Roborev + Agent Browser",
+    "section": "Daily Roborev Pattern",
+    "text": "Daily Roborev Pattern\n\n\n\n1\n\n\nAsk the agent for one contained change.\n\n\n\n\n2\n\n\nCommit when the change reaches a reviewable state.\n\n\n\n\n3\n\n\nScan roborev tui every few commits or every 20 minutes.\n\n\n\n\n4\n\n\nFeed findings back into the agent while context is still warm."
   },
   {
     "objectID": "index.html#roborev-command-sheet",
     "href": "index.html#roborev-command-sheet",
-    "title": "RoboRev + Agent Browser",
-    "section": "RoboRev Command Sheet",
-    "text": "RoboRev Command Sheet\n\n\n# Essentials\nroborev init\nroborev status\nroborev tui\nroborev list --open\nroborev show &lt;job_id&gt;\nroborev close &lt;job_id&gt;\n\n# Fixing\nroborev skills install\nroborev fix\nroborev fix &lt;job_id&gt;\nroborev refine --max-iterations 5"
+    "title": "Roborev + Agent Browser",
+    "section": "Roborev Command Sheet",
+    "text": "Roborev Command Sheet\n\n\n# Essentials\nroborev init\nroborev status\nroborev tui\nroborev list --open\nroborev show &lt;job_id&gt;\nroborev close &lt;job_id&gt;\n\n# Fixing\nroborev skills install\nroborev fix\nroborev fix &lt;job_id&gt;\nroborev refine --max-iterations 5"
   },
   {
     "objectID": "index.html#config-that-matters",
     "href": "index.html#config-that-matters",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Config That Matters",
     "text": "Config That Matters\n\n\n# See merged config and where values come from\nroborev config list --show-origin\n\n# Smoke test available agents\nroborev check-agents\n# .roborev.toml\npost_commit_review = \"branch\"\n\nreview_guidelines = \"\"\"\nPrioritize correctness, security, and missing tests.\nKeep suggestions actionable and scoped to the commit.\n\"\"\"\n\n\n\nGood defaults for teams\n\n\nCommit small enough that a review has one main theme.\nAdd local review guidelines (.roborev.toml) for recurring project risks.\nUse --min-severity when auto-fixing noisy queues.\nUse roborev compact when many open findings need consolidation."
   },
   {
     "objectID": "index.html#roborev-delete",
     "href": "index.html#roborev-delete",
-    "title": "RoboRev + Agent Browser",
-    "section": "RoboRev Delete",
-    "text": "RoboRev Delete\nWhen you no longer need async reviews, run roborev repo delete [reponame] --cascade to remove the post-commit hook and stop the daemon"
+    "title": "Roborev + Agent Browser",
+    "section": "Roborev Delete",
+    "text": "Roborev Delete\nWhen you no longer need async reviews, run roborev repo delete [reponame] --cascade to remove the post-commit hook and stop the daemon"
   },
   {
     "objectID": "index.html#configure-roborev-for-claude-code",
     "href": "index.html#configure-roborev-for-claude-code",
-    "title": "RoboRev + Agent Browser",
-    "section": "Configure RoboRev For Claude Code",
-    "text": "Configure RoboRev For Claude Code\n\n Agent integration\n\n\n\n# ~/.roborev/config.toml -&gt; Global defaults for all repos\n# Default agent when no workflow-specific agent is set.\ndefault_agent = 'claude-code'\ndefault_model = 'claude-sonnet-4-6'\ndefault_backup_agent = ''\ndefault_backup_model = ''\n\nreview_reasoning = 'thorough'\nrefine_reasoning = 'standard'\nfix_reasoning = 'standard'\nreview_agent = 'claude-code'\nreview_model = 'claude-sonnet-4-6'\n\n\n# Use claude-code by default\nexport ROBOREV_AGENT=claude-code\n\n\n\nTask\nModel\n\n\n\n\nBalanced\nSonnet 4.6 for daily work\n\n\nFast\nHaiku 4.5 for quick lanes\n\n\nThorough\nOpus 4.6 for deep dives\n\n\nSecurity\nOpus 4.7 for risky code\n\n\nDesign\nOpus 4.7 for architecture"
+    "title": "Roborev + Agent Browser",
+    "section": "Configure Roborev For Claude Code",
+    "text": "Configure Roborev For Claude Code\n\n Agent integration\n\n\n\n# ~/.roborev/config.toml -&gt; Global defaults for all repos\n# Default agent when no workflow-specific agent is set.\ndefault_agent = 'claude-code'\ndefault_model = 'claude-sonnet-4-6'\ndefault_backup_agent = ''\ndefault_backup_model = ''\n\nreview_reasoning = 'thorough'\nrefine_reasoning = 'standard'\nfix_reasoning = 'standard'\nreview_agent = 'claude-code'\nreview_model = 'claude-sonnet-4-6'\n\n\n# Use claude-code by default\nexport ROBOREV_AGENT=claude-code\n\n\n\nTask\nModel\n\n\n\n\nBalanced\nSonnet 4.6 for daily work\n\n\nFast\nHaiku 4.5 for quick lanes\n\n\nThorough\nOpus 4.6 for deep dives\n\n\nSecurity\nOpus 4.7 for risky code\n\n\nDesign\nOpus 4.7 for architecture"
   },
   {
     "objectID": "index.html#roborev-in-action",
     "href": "index.html#roborev-in-action",
-    "title": "RoboRev + Agent Browser",
-    "section": "RoboRev In Action",
-    "text": "RoboRev In Action\n\n Example review\n\n\nRoboRev code review example showing a detailed review with multiple findings, file snippets, and actionable feedback."
+    "title": "Roborev + Agent Browser",
+    "section": "Roborev In Action",
+    "text": "Roborev In Action\n\n Example review\n\n\nRoborev code review example showing a detailed review with multiple findings, file snippets, and actionable feedback."
   },
   {
     "objectID": "index.html#section-2-agent-browser",
     "href": "index.html#section-2-agent-browser",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Section 2: Agent Browser",
     "text": "Section 2: Agent Browser\n\n Section 2\n\nAgent Browser gives coding agents a compact, text-first way to operate a real browser."
   },
   {
     "objectID": "index.html#agent-browser-in-one-sentence",
     "href": "index.html#agent-browser-in-one-sentence",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Agent Browser In One Sentence",
     "text": "Agent Browser In One Sentence\n\n\nAgent Browser is a native CLI for browser automation that returns compact accessibility snapshots with deterministic refs such as @e1 and @e2.\n\n\n\nUse it when\n\n\nYou need quick browser automation from an agent.\nYou want page state without dumping the full DOM.\nYou need screenshots, form fills, data extraction, or multi-session checks."
   },
   {
     "objectID": "index.html#why-refs-matter",
     "href": "index.html#why-refs-matter",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Why Refs Matter",
     "text": "Why Refs Matter\n\n\n\n\n\nContext Efficient\nA snapshot can describe interactive page state in hundreds of tokens instead of thousands.\n\n\n\n\n\nDeterministic\nThe agent clicks @e2, not the second button it guesses from a screenshot.\n\n\n\n\n\nReadable\nThe agent can reason over text output that names roles, labels, and refs."
   },
   {
     "objectID": "index.html#css-selectors-the-playwright-way",
     "href": "index.html#css-selectors-the-playwright-way",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "CSS Selectors: The Playwright Way",
     "text": "CSS Selectors: The Playwright Way\n\n Query selectors\n\n\nCSS selectors require you to inspect, find paths, and hope the selector remains stable. Brittle and token-expensive."
   },
   {
     "objectID": "index.html#refs-the-agent-browser-way",
     "href": "index.html#refs-the-agent-browser-way",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Refs: The Agent Browser Way",
     "text": "Refs: The Agent Browser Way\n\n Deterministic references\n\n\nAgent Browser refs are simple, stable handles like @e1 that point to exact elements. Built-in to every snapshot, no guessing."
   },
   {
     "objectID": "index.html#agent-browser-mental-model",
     "href": "index.html#agent-browser-mental-model",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Agent Browser Mental Model",
     "text": "Agent Browser Mental Model\n\n\nOpenLaunch or navigate Chrome.\n\n\nSnapshotCapture the accessibility tree.\n\n\nRefSelect elements by @e1 style handles.\n\n\nActClick, fill, type, press, select.\n\n\nVerifySnapshot or screenshot again.\n\n\n\n\n\nThe CLI talks to a native daemon over Chrome DevTools Protocol. The daemon starts automatically and persists between commands."
   },
   {
     "objectID": "index.html#install-and-smoke-test",
     "href": "index.html#install-and-smoke-test",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Install And Smoke Test",
     "text": "Install And Smoke Test\n\n\n# Install\nnpm install -g agent-browser\n# or on macOS\nbrew install agent-browser\n\n# First run downloads Chrome\nagent-browser install\n\n\nSmoke test:\nagent-browser open https://posit.co/\n✓ Posit | Data Science Platform for Enterprise Teams\n  https://posit.co/\nagent-browser snapshot -i\n- heading \"This website uses cookies\" [level=2, ref=e139]\n- link \"Show details\" [ref=e38]\n- button \"OK\" [ref=e39]\n- link \"Skip to main content\" [ref=e1]\nagent-browser close\n\n\n\nTry without installing: npx agent-browser open posit.co."
   },
   {
     "objectID": "index.html#using-agent-browser-in-claude-code",
     "href": "index.html#using-agent-browser-in-claude-code",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Using Agent Browser In Claude Code",
     "text": "Using Agent Browser In Claude Code\n\n Two ways to use it\n\n\n\nOption 1: Install the skill (recommended)\n# One-time setup and select Claude Code as the target agent\nnpx skills add vercel-labs/agent-browser\n\n# Claude Code now has built-in agent-browser guidance\nThis installs a discovery skill that teaches Claude Code about agent-browser. The skill content auto-updates with your CLI version.\n\n\nOption 2: Use the CLI directly\nagent-browser open https://posit.co/\nagent-browser snapshot -i\nagent-browser click @e50\nagent-browser screenshot /Users/name/Desktop/result.png\nagent-browser close"
   },
   {
     "objectID": "index.html#agent-browser-skills",
     "href": "index.html#agent-browser-skills",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Agent Browser Skills",
     "text": "Agent Browser Skills\n\n Available skills\n\n\n\ncoreCore browser automation: snapshots, forms, screenshots, data extraction, auth.\n\n\ndogfoodSystematic exploratory testing with bug discovery and UX analysis.\n\n\nelectronAutomate Electron apps: VS Code, Slack, Discord, Figma, etc.\n\n\nslackNavigate Slack, check unreads, search, send messages, extract data.\n\n\nvercel-sandboxRun agent-browser inside ephemeral Vercel Sandbox microVMs.\n\n\nagentcoreRun agent-browser on AWS Bedrock AgentCore cloud browsers.\n\n\n\n\n\nAfter installing, use agent-browser skills list to see all available skills, then agent-browser skills get &lt;name&gt; to load one into Claude Code."
   },
   {
     "objectID": "index.html#act-3-sample-browser-task",
     "href": "index.html#act-3-sample-browser-task",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Act 3: Sample Browser Task",
     "text": "Act 3: Sample Browser Task\n\n\nGoal\n\nUse Agent Browser to add a todo, verify it appears, and close the browser cleanly.\n\n\n\nagent-browser open https://demo.playwright.dev/todomvc/\nagent-browser snapshot -i\n\n# Find the textbox ref, for example @e1.\nagent-browser click @e1\nagent-browser type \"Buy Dr. Pepper\"\nagent-browser press Enter\nagent-browser snapshot -i\nagent-browser close\n\n\nPrompt to your coding agent:\nUse Agent Browser to add a todo named “Buy Dr. Pepper” at https://demo.playwright.dev/todomvc/. Show each command before running it. Verify the todo appears with a final snapshot."
   },
   {
     "objectID": "index.html#prompting-claude-code-for-browser-tasks",
     "href": "index.html#prompting-claude-code-for-browser-tasks",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Prompting Claude Code For Browser Tasks",
     "text": "Prompting Claude Code For Browser Tasks\n\n Example prompts\n\n\n\n\nSimple exploration\n\n“Use agent-browser to open https://positron.posit.co/keyboard-shortcuts.html, take a snapshot, and describe what you see. List the clickable elements by their refs.”\nClaude Code runs commands and reads the snapshot output.\n\n\n\nForm interaction\n\n“Use agent-browser to navigate to https://posit.co/schedule-a-call, find the email field, type test@posit.co, click submit, and show a screenshot.”\nClaude Code chains commands and maps human language to refs."
   },
   {
     "objectID": "index.html#prompting-claude-code-for-browser-tasks-cont.",
     "href": "index.html#prompting-claude-code-for-browser-tasks-cont.",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Prompting Claude Code For Browser Tasks (cont.)",
     "text": "Prompting Claude Code For Browser Tasks (cont.)\n\n\n\nWith the skill\n\nAfter installing the skill, Claude Code knows to suggest agent-browser skills get core for detailed workflows.\n“I need to systematically test my app. What should I use?”\nClaude Code will recommend the dogfood or core skill.\n\n\n\nDebugging\n\n“Something broke on the login page. Use agent-browser to open [url], take a screenshot, and describe what you see.”\nClaude Code provides visual + accessibility tree context."
   },
   {
     "objectID": "index.html#essential-commands",
     "href": "index.html#essential-commands",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Essential Commands",
     "text": "Essential Commands\n\n\nagent-browser open &lt;url&gt;Open a page in a browser session.\n\n\nagent-browser goto &lt;url&gt;Navigate the current page.\n\n\nagent-browser snapshot -iPrint compact page state with refs.\n\n\nagent-browser click @e1Click a referenced element.\n\n\nagent-browser fill @e1 “text”Clear and fill a field.\n\n\nagent-browser press EnterSend a keyboard command.\n\n\nagent-browser screenshot page.pngSave visual evidence.\n\n\nagent-browser closeClose the browser session."
   },
   {
     "objectID": "index.html#pattern-snapshot-act-verify",
     "href": "index.html#pattern-snapshot-act-verify",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Pattern: Snapshot, Act, Verify",
     "text": "Pattern: Snapshot, Act, Verify\n\n\nagent-browser snapshot -i\n# - textbox \"Email\" [ref=e1]\n# - textbox \"Password\" [ref=e2]\n# - button \"Login\" [ref=e3]\n\nagent-browser fill @e1 \"test@example.com\"\nagent-browser fill @e2 \"password123\"\nagent-browser click @e3\n\nagent-browser snapshot -i\nagent-browser screenshot login-result.png\n\n\n\nInstruction pattern\n\n\nAsk the agent to snapshot before acting.\nMake it name the ref it plans to use.\nHave it verify after every meaningful state change.\nSave screenshots when visual evidence matters."
   },
   {
     "objectID": "index.html#act-4-exploratory-browser-task",
     "href": "index.html#act-4-exploratory-browser-task",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Act 4: Exploratory Browser Task",
     "text": "Act 4: Exploratory Browser Task\n\n\nScenario\n\nTest whether the Todo List renders a script-like todo as text or executes it.\n\n\n\nPrompt to your coding agent:\nUse Agent Browser to test https://demo.playwright.dev/todomvc/ with this todo text: &lt;script&gt;alert('xss')&lt;/script&gt;\nOpen the app, snapshot to find the input, add the todo, save a screenshot as xss-test.png, snapshot again, and report whether the text rendered or executed.\n\n\nagent-browser open https://demo.playwright.dev/todomvc/\nagent-browser snapshot -i\nagent-browser click @e1\nagent-browser type \"&lt;script&gt;alert('xss')&lt;/script&gt;\"\nagent-browser press Enter\nagent-browser screenshot xss-test.png\nagent-browser snapshot -i\nagent-browser close"
   },
   {
     "objectID": "index.html#choosing-the-browser-tool",
     "href": "index.html#choosing-the-browser-tool",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Choosing The Browser Tool",
     "text": "Choosing The Browser Tool\n\n Comparison\n\nExample: “Log in to a site”\n\n\n\n\n\n\n\n\nApproach\nHow it works\nAgent perspective\n\n\n\n\nPlaywright CLI\nFind selector input[name=\"user\"], wait for visibility, type text, handle timing\nRequires CSS knowledge, brittle selectors, more “coding”\n\n\nAgent Browser\nsnapshot -i → see @e1 (username), @e2 (password) → fill @e1 \"user\" → fill @e2 \"pass\" → click @e3\nNatural, human-like, deterministic refs, no CSS needed"
   },
   {
     "objectID": "index.html#choosing-the-browser-tool-1",
     "href": "index.html#choosing-the-browser-tool-1",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Choosing The Browser Tool",
     "text": "Choosing The Browser Tool\n\n\n One-off taskAgent Browser — move fast with minimal setup\n\n\n Deep reasoning over live statePlaywright MCP — introspect and reason in real-time\n\n\n Repeatable CI suitePlaywright Test — durable, multi-browser, version-controlled\n\n\n Token constrainedAgent Browser — compact snapshots (~200-400 tokens vs 3000+)"
   },
   {
     "objectID": "index.html#use-both-tools-together",
     "href": "index.html#use-both-tools-together",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Use Both Tools Together",
-    "text": "Use Both Tools Together\n\n Final exercise\n\n\n\n\nPart A: code loop\n\n\nAsk the agent to add or adjust one UI behavior.\nCommit the change.\nOpen RoboRev and inspect the queued review.\n\n\n\n\nPart B: browser loop\n\n\nUse Agent Browser to exercise the changed UI.\nSave a screenshot or snapshot evidence.\nFeed both RoboRev findings and browser evidence back into the agent."
+    "text": "Use Both Tools Together\n\n Final exercise\n\n\n\n\nPart A: code loop\n\n\nAsk the agent to add or adjust one UI behavior.\nCommit the change.\nOpen Roborev and inspect the queued review.\n\n\n\n\nPart B: browser loop\n\n\nUse Agent Browser to exercise the changed UI.\nSave a screenshot or snapshot evidence.\nFeed both Roborev findings and browser evidence back into the agent."
   },
   {
     "objectID": "index.html#resources",
     "href": "index.html#resources",
-    "title": "RoboRev + Agent Browser",
+    "title": "Roborev + Agent Browser",
     "section": "Resources",
-    "text": "Resources\n\n\n\nRoboRev\n\n\nQuick Start\nCLI Commands\nAgent Skills\nGitHub Repository\n\n\n\n\nAgent Browser\n\n\nDocs\nGitHub Repository\nPlaywright MCP\nPlaywright CLI\n\n\n\n\nKeep the loop small: change, commit, review, verify, fix."
+    "text": "Resources\n\n\n\nRoborev\n\n\nQuick Start\nCLI Commands\nAgent Skills\nGitHub Repository\n\n\n\n\nAgent Browser\n\n\nDocs\nGitHub Repository\nPlaywright MCP\nPlaywright CLI\n\n\n\n\nKeep the loop small: change, commit, review, verify, fix."
   }
 ]
